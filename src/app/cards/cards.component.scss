@@ -1,0 +1,65 @@
+.image-card {
+  border: 15px solid white;
+  position: relative;
+  margin-top: 20px;
+}
+.card-container {
+  // width: 100%;
+  // margin-top: 20px;
+  // height: 100vh;
+  background-color: #f9dad3;
+  display: flex;
+  flex-wrap: wrap;
+  // margin-top: 7%;
+  justify-content: space-around;
+  padding: 50px;
+}
+// .card-title{
+//   font-family: 'Sora';
+//   font-style: normal;
+//   font-weight: 800;
+//   font-size: 28px;
+//   // line-height: 118%;
+//   color: #F9DAD3;
+
+// }
+.form-check-input{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: flex-end;
+}
+.card-text {
+  // width: 288px;
+  // height: 63px;
+  // left: 139px;
+  // display: flex;
+  // width: 100%;
+  // justify-content: space-between;
+  bottom: 0;
+  position: absolute;
+
+}
+h4{
+  font-size: 28px;
+  font-family: sora;
+  font-weight: 800;
+}
+p{
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+// .card-title {
+//   padding-top: 60px;
+// }
+.card-img-overlay {
+  position: absolute;
+  bottom: 0;
+  background-image: linear-gradient(transparent, #3144b4);
+  color: #f9dad3;
+}
+// .check{
+  // margin-left: 220px;
+// }
