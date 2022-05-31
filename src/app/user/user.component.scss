@@ -1,0 +1,151 @@
+// .container{
+//     position: relative;
+//     color: rgb(37, 61, 61);
+//     background-color:  #F9DAD3;
+//     height: 100vh;
+//     width: 100%;
+//     border: 30px solid #FFFFFF;
+//     padding-left: 4rem;
+// } 
+.text-small{
+    position: absolute;
+    font-size: 14px;
+    font-family: 'sora';
+    color:  #3144B4;
+    padding-right: 2rem;
+}
+.love-text{  
+   
+    color: red;
+}
+.text-large{
+    position: absolute;
+    // font-family: 'sora';
+    // font-style: normal;
+    font-size: 92px;
+    letter-spacing: -0.05em;
+    color: #3144B4;
+    font-weight: bold;
+    line-height: 4rem;
+    top: 120px; 
+}
+.table-div{
+    position: absolute;
+    background-color: #F9DAD3;  
+      
+}
+.table td{ 
+    font-size: 14px;
+    line-height: 22.4px;
+    color: #3144B4;
+    border: 1px solid #3144B4;
+    font-weight: 400;
+    padding-left: 1rem;  
+}
+.table {
+    margin-bottom: 0px;
+    box-shadow: 0 21px 0 -12px #3144b4;
+ }
+.select-inner{
+ background-color: #F9DAD3;
+ border: none;
+ font-size: 20px;
+ font-family: 'sora';
+ letter-spacing: -0.02em;
+ font-weight: 800;
+ color: #3144b4;
+  
+}
+
+.dashboard-container{
+    //padding: 2rem;
+    background: #FFF;
+    height: 100vh;
+    overflow-y: auto;
+}
+.dashboard-inner-container{
+    padding: 3rem;
+    background-color: #F9DAD3;
+    height: 100%;
+}
+.ml-32{
+    margin-left: 2rem;
+}
+.filter-div{
+    padding-bottom: 1.5rem;
+}
+.filter-layout{
+    position: absolute;
+    z-index: 9999;
+    background:  #F9DAD3;
+    padding-right: 3rem;
+}
+.image-backgroud-layout{
+    padding-top: 2.3rem;
+}
+.clear-layout{
+    position: absolute;
+    right: -2rem;
+    bottom: 0;
+}
+.table-main-div{
+    top: 300px;
+}
+ 
+.clear{
+    position: absolute;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #3144B4;
+
+}
+.bottom-text-layout{
+    padding-top: 3rem;
+}
+.person-text{
+// font-family: 'Sora';
+// font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 160%;
+    letter-spacing: -0.02em;
+    color: #3144B4;
+
+}
+.small-text{
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #3144B4;
+ 
+}
+.buttons{
+    padding-top: 1.5rem;
+    text-align: end;
+    position: absolute;
+    right: -8rem;
+.submit-text2{
+    box-shadow: 0 19px 0 -16px #3144b4;
+}
+}
+.submit-text{
+    font-family: 'Sora';
+    font-style: normal;
+    background-color: #F9DAD3;
+    border: 1px solid #3144B4;
+    padding: 0.5rem;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    word-spacing: 10px;
+}
+.drop-down{
+    background-color: #FFF;
+}

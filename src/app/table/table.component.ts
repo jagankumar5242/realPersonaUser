@@ -43,16 +43,18 @@ export class TableComponent implements OnInit,AfterViewInit{
   count = 0;
   onselect(id,i){
 
-   
+    
       this.userdetail[i].isSelected = !this.userdetail[i].isSelected;
-      if( this.userdetail[i].isSelected && this.count != 4)
+
+      if( this.userdetail[i].isSelected && this.count < 4)
       {
          this.selectedArray.push(this.userdetail[i])
           this.count++;
       }
       else
       {
-          this.selectedArray.slice()
+          this.selectedArray.splice(this.selectedArray.indexOf(id,0));
+          this.count--;
       }
 
 
