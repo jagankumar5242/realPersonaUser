@@ -76,7 +76,12 @@
                 </div>
              </div>
         </div>
-       
      </div>
  </div>
- 
+ <span *ngIf="isShow" > 
+    <app-cards *ngFor="let persons of users"></app-cards>
+ </span>
+ <span *ngIf="!isShow"> 
+    <app-cards ></app-cards>
+ </span>
+  
