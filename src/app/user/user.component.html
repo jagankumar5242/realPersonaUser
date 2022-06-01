@@ -68,7 +68,7 @@
             <div class="row col-12 bottom-text-layout ml-32 ">
                 <div class="col-6">
                     <label for="" class="small-text">displaying</label>
-                    <p class="person-text">23 personas</p>
+                    <p class="person-text"> {{users.length}}  personas</p>
                 </div>
                 <div class="col-6 buttons ">
                     <button class="button submit-text col-3" [ngClass]="{'submit-text2':isShow}"  (click)="taggleCard()"><img src="assets\images\card.svg" alt=""> Card</button>
@@ -79,9 +79,15 @@
      </div>
  </div>
  <span *ngIf="isShow" > 
-    <app-cards *ngFor="let persons of users"></app-cards>
+    <app-cards></app-cards>
  </span>
  <span *ngIf="!isShow"> 
     <app-cards ></app-cards>
  </span>
-  
+
+
+  <!-- <ul>
+      <li *ngFor="let details of users">
+        {{details.location}}
+      </li>
+  </ul> -->

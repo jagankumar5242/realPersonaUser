@@ -10,12 +10,13 @@ export class UserComponent implements OnInit {
  
   isShow=true
    user:any ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
-   users:any=['']
+   users:any ;
   constructor(public userService:UserService) { }
 
   ngOnInit(): void {
    const data={};
     this.userService.getDetails(data).subscribe(res =>{
+      this.users=res;
       console.log(res)
     },err=>{
       alert("somthing error occurs")
