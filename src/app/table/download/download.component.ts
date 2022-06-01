@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-download',
+  templateUrl: './download.component.html',
+  styleUrls: ['./download.component.scss']
 })
-export class AppComponent {
-  title = 'realPersonaUser';
+export class DownloadComponent implements OnInit {
+
+  @Input() userselected:any;
 
   visibleSidebar1;
     
@@ -25,5 +26,7 @@ export class AppComponent {
   ngOnInit() {
     this.primengConfig.ripple = true;
   }
+
   
+
 }

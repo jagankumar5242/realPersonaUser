@@ -31,8 +31,15 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+=======
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+>>>>>>> fb0c868a3df0e34b7f673c561b5bf486e3111757
               "src/styles.scss"
+
             ],
             "scripts": []
           },
