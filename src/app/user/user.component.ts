@@ -11,6 +11,7 @@ export class UserComponent implements OnInit {
   isShow=true
    user:any ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    users:any ;
+   
   constructor(public userService:UserService) { }
 
   ngOnInit(): void {
@@ -33,6 +34,5 @@ export class UserComponent implements OnInit {
   cleareFilter( ){
    this.user ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    
-  //  console.Reset()
   } 
 }

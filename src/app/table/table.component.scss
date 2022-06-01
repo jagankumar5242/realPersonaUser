@@ -1,0 +1,117 @@
+.container-fluid{
+
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: #F9DAD3;
+}
+p{
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+.main{
+
+    width: 1040px;
+    height: 130px;
+    background-color: white;
+    border: 4px solid #F9DAD3;
+    // overflow: hidden;
+}
+
+.main:hover{
+
+    border:  4px solid #3144B4;
+    // overflow: hidden;
+}
+
+
+
+.imgdiv{
+    min-width: 346px;
+}
+.image{
+
+    margin: 11px 0px 11px 10px;
+    overflow: hidden;
+}
+
+
+.image img{
+
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    overflow: hidden;
+    object-position: center top;
+    transform: scale(1.15);
+}
+
+
+.name{
+    margin-left: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+}
+.name h2{
+
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+
+}
+
+
+.age{
+    min-width: 136px;
+    border-left: 2px solid #F9DAD3;
+}
+.age-main{
+    min-width: 136px;
+}
+.occupation{
+    min-width: 218px !important;
+    border-left: 2px solid #F9DAD3;
+    
+}
+.occu-main{
+    min-width: 218px
+}
+
+
+.address{
+    min-width: 337px;
+    border-left: 2px solid #F9DAD3;
+}
+.addr-inner{
+    min-width: 330px;
+}
+
+.addr-inner p{
+    margin-left: 43px;
+}
+
+.addr-inner input[type="checkbox"]{
+
+    width: 26px;
+    height: 26px;
+    margin-right: 40px;
+    box-shadow: none;
+}
+.form-check-input:checked{
+
+    outline: 4px solid rgba(49, 68, 180, 0.5);
+    border-radius: 0.5px;
+    background-color: #3144B4;
+    box-shadow: none;
+}
+.table{
+    margin: 1px solid blue;
+}
+.selected-state{
+    border:4px solid #3144B4
+}
