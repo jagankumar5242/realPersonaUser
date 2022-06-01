@@ -10,6 +10,15 @@ export class UserService implements OnInit{
 
   ngOnInit()
   {
-    return this.http.get<any>('http://199.34.21.254/persona/personas/0/10');
+    
   }
+
+
+  // iam commenting this code because api not working
+  
+  // getPdf(ids){
+
+  //   return this.http.get<any>('http://199.34.21.254/persona/generate-pdf',ids);
+
+  // }
 }
