@@ -1,34 +1,34 @@
 <div class="card-container row">
-  <div class="col-4" *ngFor="let element of users">
+  <div class="col-12 col-md-4 col-sm-6" *ngFor="let element of users">
     <!--  <div class="col-4" (mouseover)="showCheckbox=true" (mouseout)="showCheckbox=false"></div> -> -->
     <div
       class="image-card"
       (mouseenter)="showCheckbox = true"
-      (mouseleave)="showCheckbox = false"
-      onclick="mark(imageId)"  id="imageId" 
+      (mouseleave)="showCheckbox = false" onclick="clickHandler(this)"
+        id="imageId" 
       
     >
       <img
         class="card-img"
-        src="assets/images/img2.svg"
+        src="assets/images/parvatham.svg"
         alt="Card image"
        
       />
-      <div class="card-img-overlay col-sm-12">
-        <div class="card-text  col-sm-8">
+      <div class="card-img-overlay">
+        <div class="text">
           <h4>
             {{ element.firstname + " " + element.lastname }}
           </h4>
           <p>
             {{element.age +" years " +element.occupation +" " + element.location }}
           </p>
-          <div class="check  col-sm-4">
-            <span 
-            ><input type="checkbox" class="form-check-input"
-          /></span>
-          </div>
         </div>
+          <div class="check">
+            <input *ngIf="showCheckbox" type="checkbox" class="form-check-input"
+          />
+          </div>
       </div>
     </div>
   </div>
 </div>
+<!-- onclick="mark(imageId)" -->

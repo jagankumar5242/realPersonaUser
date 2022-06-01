@@ -23,6 +23,7 @@ export class CardsComponent implements OnInit {
   //   const c = document.querySelector("check")
     
   // }
+  // imgBorder = document.getElementsByClassName("image-card");
   mark(imageId : any){
     // document.getElementById(imageId).style.border = "1";
     document.getElementById("imageId")?.style.border == "blue solid 7px";

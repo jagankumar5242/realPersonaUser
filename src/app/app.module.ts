@@ -9,7 +9,7 @@ import { CardsComponent } from './cards/cards.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
     CardsComponent
   ],
   imports: [
