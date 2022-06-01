@@ -39,78 +39,16 @@ export class TableComponent implements OnInit,AfterViewInit{
     
   }
 
-  selectedArray = [];
-  count = 0;
   onselect(id,i){
-
-    
+    if(!this.userdetail[i].isSelected){
+      const selectedUsers = this.userdetail.filter(ele => ele.isSelected);
+      if(selectedUsers.length < 4){
+        this.userdetail[i].isSelected = !this.userdetail[i].isSelected;
+      }else{
+        alert('Maximum four users only be selected');
+      }
+    }else{
       this.userdetail[i].isSelected = !this.userdetail[i].isSelected;
-
-      if( this.userdetail[i].isSelected && this.count < 4)
-      {
-         this.selectedArray.push(this.userdetail[i])
-          this.count++;
-      }
-      else
-      {
-          this.selectedArray.splice(this.selectedArray.indexOf(id,0));
-          this.count--;
-      }
-
-
-
-
-    // console.log(this.userdetail.indexOf(this.userdetail[i]));
-      console.log( this.userdetail[i].isSelected)
-      // console.log(this.userdetail)
-      
+    }
   }
-
-  oncheck($event){
-
-    const id = $event.target.value;
-    // if($event.target.checked && id === )
-    // {
-    //   this.checkbox = true;
-    // }
-    // else{
-    //   this.checkbox = false;
-    //   this.child.nativeElement.style = "border:4px solid #3144B4";
-    // }
-    console.log(id)
-  }
-
-  // user = [
-  //   {image:"../../assets/images/Rectangle 1.png",
-  //     fname:"Parvatamma",
-  //     lname:'Gowda',
-  //     age:'58 Years',
-  //     occupation:'Housewife',
-  //     address:'Madurai, Tamil Nadu'
-  //   },
-  //   {image:"../../assets/images/Rectangle 1.png",
-  //     fname:"Parvatamma",
-  //     lname:'Gowda',
-  //     age:'58 Years',
-  //     occupation:'Housewife',
-  //     address:'Madurai, Tamil Nadu'
-  //   },
-  //   {image:"../../assets/images/Rectangle 1.png",
-  //     fname:"Parvatamma",
-  //     lname:'Gowda',
-  //     age:'58 Years',
-  //     occupation:'Housewife',
-  //     address:'Madurai, Tamil Nadu'
-  //   },
-  //   {image:"../../assets/images/Rectangle 1.png",
-  //     fname:"Parvatamma",
-  //     lname:'Gowda',
-  //     age:'58 Years',
-  //     occupation:'Housewife',
-  //     address:'Madurai, Tamil Nadu'
-  //   }
-  // ]
-
-
-
 }

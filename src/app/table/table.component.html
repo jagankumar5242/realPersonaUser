@@ -22,34 +22,11 @@
         <div class="address d-flex align-items-center">
             <div class="addr-inner d-flex justify-content-between">
                 <p class="mb-0">{{x.location}}</p>
-                <input *ngIf="x.isSelected" type ="checkbox" [value] = "x.persona_id" (change) = "oncheck($event)" class="form-check-input mt-0" 
+                <input *ngIf="x.isSelected" type ="checkbox" [value] = "x.persona_id"  class="form-check-input mt-0" 
                     [checked] = "x.isSelected">
             </div>
         </div>
     </div>
-  
 </div>
 <br>
 <app-download [userselected] = "userdetail"></app-download>
-
-
-
-
-<!-- <div class=" px-0 pad d-flex flex-row align-items-center" style="background-color: red;">
-    <div class="image">
-        <img src="../../assets/images/Rectangle 1.png" alt="" srcset="">
-    </div>
-    <div class="name">
-        <h2>Parvatamma <br> Gowda</h2>
-    </div>
-</div>
-<div class="age px-0 d-flex align-items-center justify-content-center" style="background-color: rgb(158, 116, 116);">
-    <p>58 Years</p>
-</div>
-<div class="occu col-2 px-0  d-flex align-items-center justify-content-center" style="background-color: rgb(58, 156, 55);">
-    <p>987adna</p>
-</div>
-<div class="address col-4 px-0 d-flex align-items-center justify-content-between " style="background-color: rgb(225, 240, 23);">
-    <p>jda897dnn</p>
-    <input type="checkbox" name="" id="">
-</div> -->
