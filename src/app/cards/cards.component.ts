@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from '../user/user.service';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-cards',
@@ -7,34 +9,45 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CardsComponent implements OnInit {
-  // userdetail:any = [];
-  // selectedusers : any =[];
+
   isSelected = false ;
   showCheckbox = false;
-  users :any = [{firstname:"jhon",gender:"1",lastname:"Deo", age:"65",location:"Delhi",occupation:"Daily Labour",persona_id:"61"},
-                {firstname:"parvathama",gender:"0",lastname:"Gowda",age:"35",location:" Mysore, Karnataka",occupation:"Housewife",persona_id:"62" },
-                {firstname:"jhon",gender:"1",lastname:"Deo", age:"65",location:"Delhi",occupation:"Daily Labour",persona_id:"61"},
-                {firstname:"parvathama",gender:"0",lastname:"Gowda",age:"35",location:" Mysore, Karnataka",occupation:"Housewife",persona_id:"62" },
-                {firstname:"Tim",gender:"1",lastname:"Deo",age:"35",location:"Bengaluru",occupation:"CEO",persona_id:"63"},
-                {firstname:"Tim",gender:"1",lastname:"Deo",age:"35",location:"Bengaluru",occupation:"CEO",persona_id:"63"}];
-  constructor() { }
+  @Input() userDetails;
+
+  @Output() outputFromCards : EventEmitter<any> = new EventEmitter();
+  
+  // users :any = [{firstname:"jhon",gender:"1",lastname:"Deo", age:"65",location:"Delhi",occupation:"Daily Labour",persona_id:"61"},
+  //               {firstname:"parvathama",gender:"0",lastname:"Gowda",age:"35",location:" Mysore, Karnataka",occupation:"Housewife",persona_id:"62" },
+  //               {firstname:"Tim",gender:"1",lastname:"Deo",age:"35",location:"Bengaluru",occupation:"CEO",persona_id:"63"},
+  //               {firstname:"Tim",gender:"1",lastname:"Deo",age:"35",location:"Bengaluru",occupation:"CEO",persona_id:"63"}];
+  constructor(private user:UserService ) { }
 
   ngOnInit(): void {
-    const Selected = this.users.filter((elem :any ) => elem.isSelected); 
-    console.log(Selected);
+    // const data={};
+    // this.user.getDetails(data).subscribe(res =>{
+    //   this.users=res;
+    //   console.log(res)
+    // },err=>{
+    //   alert("somthing error occurs")
+    // })
   }
   clickHandler(x,i)
   {
-    // console.log(i);
-    if(!this.users[i].isSelected){
-      const selectedUsers = this.users.filter(ele => ele.isSelected);
-      if(selectedUsers.length < 4){
-        this.users[i].isSelected = !this.users[i].isSelected;
-      }else{
+    if(!this. userDetails[i].isSelected){
+      const selectedUsers = this. userDetails.filter(ele => ele.isSelected);
+      if(selectedUsers.length < 4)
+      {
+        this.userDetails[i].isSelected = !this. userDetails[i].isSelected;
+      }
+      else
+      {
         alert('Maximum four users only be selected');
       }
     }else{
-      this.users[i].isSelected = !this.users[i].isSelected;
+      this. userDetails[i].isSelected = !this.userDetails[i].isSelected;
     }
+    const selected = this.userDetails.filter(ele => ele.isSelected);
+    // console.log(selected);
+    this.outputFromCards.emit(selected);
   }
 }

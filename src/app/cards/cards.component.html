@@ -1,14 +1,15 @@
 <div class="card-container row">
-  <div class="col-12 col-md-4 col-sm-6" *ngFor="let element of users ;index as i">
+  <div class="col-12 col-md-4 col-sm-6" *ngFor="let element of userDetails ;index as i">
+  <!-- <div class="col-4" *ngFor="let element of userDetails"> -->
     <!--  <div class="col-4" (mouseover)="showCheckbox=true" (mouseout)="showCheckbox=false"></div> -> -->
     <div
       class="image-card"
-     (click) = "clickHandler(element.firstname, i)"
+     (click) = "clickHandler($event, i)"
       [ngClass]="{'selected-state': element.isSelected}"  
     >
       <img
         class="card-img"
-        src="assets/images/parvatham.svg"
+        src="assets/images/img2.svg"
         alt="Card image"       
       />
       <div class="card-img-overlay">
@@ -23,12 +24,13 @@
           <div class="check">
             <input  *ngIf="element.isSelected" [checked] = "element.isSelected" type="checkbox" class="form-check-input"
           />
+          <img *ngIf="element.isSelected" class="tick"  src="assets/images/tick.svg" alt="">
           </div>
       </div>
     </div>
   </div>
 </div>
-<app-download [userselected] = "users" ></app-download>
+<app-download [userselected] = "userDetails" ></app-download>
 <!-- onclick="mark(imageId)" -->
 
 <!-- (mouseenter)="showCheckbox = true" -->

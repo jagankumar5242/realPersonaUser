@@ -2,20 +2,19 @@
   border: 15px solid white;
   position: relative;
   margin-top: 20px;
-  // padding-bottom: 40px;
-  
+  // padding-bottom: 40px; 
 }
 .selected-state{
   border:15px solid #3144B4;
 }
 .card-container {
   background-color: #f9dad3;
-  // display: flex;
+  // display: flex; 
   // flex-wrap: wrap;
   justify-content: space-around;
   padding-left: 100px;
   padding-right: 100px;
-  border: 15px solid white;
+  // border: 15px solid white;
 }
 .form-check-input {
   width: 30px;
@@ -23,8 +22,17 @@
   position: absolute;
   right: 5px;
   bottom: 5px;
+  outline: 4px solid rgba(49, 68, 180, 0.5);
+  border-radius: 0.5px;
+  // background-color: #3144B4;
+  background-color: white;
+  box-shadow: none;
 }
-
+.tick{
+  position: absolute;
+  right: 9px;
+  bottom: 12px;
+}
 .text {
   bottom: 0;
   position: absolute;
@@ -40,7 +48,6 @@ p {
   font-weight: 400;
   font-size: 14px;
 }
-
 .card-img-overlay {
   position: absolute;
   bottom: 0;

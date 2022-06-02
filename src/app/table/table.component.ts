@@ -1,54 +1,88 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
-import { UserService } from '../user.service';
-import { UserDetails } from './userdetail.model';
+import {  Component, ElementRef,  Input, OnInit, ViewChild } from '@angular/core';
+ 
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit,AfterViewInit{
-
+export class TableComponent implements OnInit {
+  check = false;
+  checkbox = false; 
+  selected = []; 
+  selectedArray = [];
+  count = 0;
   @ViewChild('row') child:ElementRef;
- 
-  constructor(private userservice:UserService) { }
+  @Input () userDetails;
+  constructor() { }
 
   ngOnInit(): void {
-
-    this.onget();
-  }
-  ngAfterViewInit(): void {
-
-  }
  
-  dom;
-  check = false;
-  checkbox = false;
-
-  selected = [];
-
-  userdetail:UserDetails[] = [];
-
-  onget(){
-
-    this.userservice.ngOnInit().subscribe(
-          responseData =>{
-            console.log(responseData);
-            this.userdetail = responseData.filter(ele => ele.firstname);
-          })
-    
-  }
-
+  } 
+ 
   onselect(id,i){
-    if(!this.userdetail[i].isSelected){
-      const selectedUsers = this.userdetail.filter(ele => ele.isSelected);
-      if(selectedUsers.length < 4){
-        this.userdetail[i].isSelected = !this.userdetail[i].isSelected;
-      }else{
-        alert('Maximum four users only be selected');
+
+      this.userDetails[i].isSelected = !this.userDetails[i].isSelected;
+
+      if( this.userDetails[i].isSelected && this.count < 4)
+      {
+         this.selectedArray.push(this.userDetails[i])
+          this.count++;
       }
-    }else{
-      this.userdetail[i].isSelected = !this.userdetail[i].isSelected;
-    }
+      else
+      {
+          this.selectedArray.splice(this.selectedArray.indexOf(id,0));
+          this.count--;
+      } 
+
+    // console.log(this.userdetail.indexOf(this.userdetail[i]));
+      console.log( this.userDetails[i].isSelected)
+      // console.log(this.userdetail)
+      
   }
+
+  oncheck($event){
+
+    const id = $event.target.value;
+    // if($event.target.checked && id === )
+    // {
+    //   this.checkbox = true;
+    // }
+    // else{
+    //   this.checkbox = false;
+    //   this.child.nativeElement.style = "border:4px solid #3144B4";
+    // }
+    console.log(id)
+  }
+
+  // user = [
+  //   {image:"../../assets/images/Rectangle 1.png",
+  //     fname:"Parvatamma",
+  //     lname:'Gowda',
+  //     age:'58 Years',
+  //     occupation:'Housewife',
+  //     address:'Madurai, Tamil Nadu'
+  //   },
+  //   {image:"../../assets/images/Rectangle 1.png",
+  //     fname:"Parvatamma",
+  //     lname:'Gowda',
+  //     age:'58 Years',
+  //     occupation:'Housewife',
+  //     address:'Madurai, Tamil Nadu'
+  //   },
+  //   {image:"../../assets/images/Rectangle 1.png",
+  //     fname:"Parvatamma",
+  //     lname:'Gowda',
+  //     age:'58 Years',
+  //     occupation:'Housewife',
+  //     address:'Madurai, Tamil Nadu'
+  //   },
+  //   {image:"../../assets/images/Rectangle 1.png",
+  //     fname:"Parvatamma",
+  //     lname:'Gowda',
+  //     age:'58 Years',
+  //     occupation:'Housewife',
+  //     address:'Madurai, Tamil Nadu'
+  //   }
+  // ]   
 }
