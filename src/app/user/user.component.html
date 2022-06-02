@@ -6,9 +6,14 @@
         <div class="text-large col-10 ml-32">
              <span> Real <img src="assets\images\heading image.svg" alt=""> people  <br> for your persona</span>
         </div>
-        <div class="position-relative col-10 table-main-div">
+        <!-- <div class="row">
+            <span>
+                <app-download [userselected] = "userDetails"></app-download>
+             </span>
+         </div> -->
+        <div class="position-relative col-10 table-main-div mt-48">
             <div class="filter-layout ml-32   col-10">
-                <table class="table">
+                <table class="table sticky">
                     <thead> 
                     <tr class="table-row">
                         <td class="col-3" for="age" > Age  <br> 
@@ -58,17 +63,14 @@
                 <div class="col-8">
                     <img class="w-100 h-100"src="assets\images\table-background.svg" alt="">
                 </div>
-                <div class="col-4 filter-div">
+                <div class="col-4 ">
                     <label class="clear" (click)="cleareFilter()">Clear Filters</label>
                 </div>   
-             </div>
-            <!-- <div class="clear-layout col-2">
-                
-            </div> -->  
-            <div class="row col-12 bottom-text-layout ml-32 ">
+             </div> 
+            <div class="row col-12 bottom-text-layout ">
                 <div class="col-6">
                     <label for="" class="small-text">displaying</label>
-                    <p class="person-text">23 personas</p>
+                    <p class="person-text"> {{users.length}}  personas</p>
                 </div>
                 <div class="col-6 buttons ">
                     <button class="button submit-text col-3" [ngClass]="{'submit-text2':isShow}"  (click)="taggleCard()"><img src="assets\images\card.svg" alt=""> Card</button>
@@ -76,7 +78,17 @@
                 </div>
              </div>
         </div>
-       
-     </div>
+        <div class="row table-card mt-48">
+            <span *ngIf="isShow" > 
+                <app-cards [userDetails]="users"></app-cards>
+             </span>
+             <span *ngIf="!isShow"> 
+                <app-table [userDetails]="users" (selecteduser) = "reciveTableData($event)"></app-table>
+             </span>
+        </div> 
+     </div> 
  </div>
+ 
+ 
+
  

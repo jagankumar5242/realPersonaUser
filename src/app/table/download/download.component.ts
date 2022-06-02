@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
-import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-download',
@@ -10,6 +9,7 @@ import { UserService } from 'src/app/user.service';
 export class DownloadComponent implements OnInit {
   
   @Input() userselected:any;
+  @Output() uncheck = new EventEmitter<any>();
   
   
   visibleSidebar1;
@@ -23,22 +23,28 @@ export class DownloadComponent implements OnInit {
   visibleSidebar5;
   
   
-  constructor(private primengConfig: PrimeNGConfig,
-    private userservice:UserService) {}
+  constructor(private primengConfig: PrimeNGConfig) {}
     
     ngOnInit() {
       this.primengConfig.ripple = true;
     }
     
-  //Deleting selected Personas
+  //Deleting selected Personas from sidebar(pdf downloading component)
   delete(id,i){
-      this.userselected.splice(i, 1);
+      this.userselected.splice(i, 1)
+      this.uncheck.emit(id);
   }
 
+ 
   //downloading selected personas
   download(){
-
-    alert("Api Not working!!!")
+    
+    alert("Not working!!!")
+    // this.http.get<any>('http://199.34.21.254/persona/generate-pdf',id)
   }
 
+  onclick(){
+    this.visibleSidebar2 = true;
+  }
+  
 }

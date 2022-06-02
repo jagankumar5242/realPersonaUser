@@ -7,8 +7,12 @@
 //     border: 30px solid #FFFFFF;
 //     padding-left: 4rem;
 // } 
+.table.sticky{
+    top: 0;
+    position: sticky;
+}
 .text-small{
-    position: absolute;
+    //position: absolute;
     font-size: 14px;
     font-family: 'sora';
     color:  #3144B4;
@@ -19,7 +23,7 @@
     color: red;
 }
 .text-large{
-    position: absolute;
+    //position: absolute;
     // font-family: 'sora';
     // font-style: normal;
     font-size: 92px;
@@ -27,10 +31,10 @@
     color: #3144B4;
     font-weight: bold;
     line-height: 4rem;
-    top: 120px; 
+    //top: 120px; 
 }
 .table-div{
-    position: absolute;
+    //position: absolute;
     background-color: #F9DAD3;  
       
 }
@@ -47,14 +51,13 @@
     box-shadow: 0 21px 0 -12px #3144b4;
  }
 .select-inner{
- background-color: #F9DAD3;
- border: none;
- font-size: 20px;
- font-family: 'sora';
- letter-spacing: -0.02em;
- font-weight: 800;
- color: #3144b4;
-  
+    background-color: #F9DAD3;
+    border: none;
+    font-size: 20px;
+    font-family: 'sora';
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    color: #3144b4;
 }
 
 .dashboard-container{
@@ -71,9 +74,10 @@
 .ml-32{
     margin-left: 2rem;
 }
-.filter-div{
-    padding-bottom: 1.5rem;
+.mt-48{
+    margin-top: 3rem;
 }
+ 
 .filter-layout{
     position: absolute;
     z-index: 9999;
@@ -88,12 +92,9 @@
     right: -2rem;
     bottom: 0;
 }
-.table-main-div{
-    top: 300px;
-}
- 
+
 .clear{
-    position: absolute;
+   // position: absolute;
     cursor: pointer;
     font-size: 14px;
     font-family: 'Sora';
@@ -148,4 +149,9 @@
 }
 .drop-down{
     background-color: #FFF;
+}
+.table-card{
+    background-color: #F9DAD3;
+    margin: -48px;
+    margin-top: 0;
 }

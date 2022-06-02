@@ -37,7 +37,7 @@ $realPersonaUser-theme: mat.define-light-theme((
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
-@import "~bootstrap-icons/font/bootstrap-icons.css";
+//@import "~bootstrap-icons/font/bootstrap-icons.css";
 
 
 body{
@@ -47,3 +47,6 @@ body{
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

@@ -1,43 +1,54 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
-import { UserService } from '../user.service';
+import {  Component, EventEmitter,  Input, OnInit, Output, ViewChild } from '@angular/core';
 import { UserDetails } from './userdetail.model';
+ 
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit,AfterViewInit{
+export class TableComponent implements OnInit{
   
   selectedUsers = [];
-  @ViewChild('row') child:ElementRef;
- 
+  // selecteduser = this.selectedUsers;
+  @Input() userDetails :any;
+  @Output() selecteduser : EventEmitter<any> =  new EventEmitter<any>(); 
   constructor() { }
 
   ngOnInit(){
 
   }
-  ngAfterViewInit(): void {
 
-  }
- 
-  userdetail:UserDetails[] = [];
+  user:UserDetails[] = [];
 
-  
   onselect(id,i){
-    if(!this.userdetail[i].isSelected){
+    if(!this.userDetails[i].isSelected){
       
-      this.selectedUsers = this.userdetail.filter(ele => ele.isSelected);
+      this.selectedUsers = this.userDetails.filter(ele => ele.isSelected);
 
       if(this.selectedUsers.length < 4){
-        this.userdetail[i].isSelected = !this.userdetail[i].isSelected;
+        this.userDetails[i].isSelected = !this.userDetails[i].isSelected;
       }else{
         alert('You can only select four personas at a time');
       }
     }else{
-      this.userdetail[i].isSelected = !this.userdetail[i].isSelected;
+      this.userDetails[i].isSelected = !this.userDetails[i].isSelected;
     }
-    this.selectedUsers = this.userdetail.filter(ele => ele.isSelected);
+    this.selectedUsers = this.userDetails.filter(ele => ele.isSelected);
+    
     console.log(this.selectedUsers);
+
+    this.selecteduser.emit(this.selectedUsers);
   }
+  
+  uncheckuser(id){
+    for (let index = 0; index < this.userDetails.length; index++) {
+
+      if(this.userDetails[index].persona_id === id && this.userDetails[index].isSelected == true){
+
+        this.userDetails[index].isSelected = false;
+      }        
+    }
+  }
+
 }
