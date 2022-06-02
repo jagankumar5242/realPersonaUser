@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
+ 
 
 @Component({
   selector: 'app-download',
@@ -27,6 +28,5 @@ export class DownloadComponent implements OnInit {
     this.primengConfig.ripple = true;
   }
 
-  
 
 }

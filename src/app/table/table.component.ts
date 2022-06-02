@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
-import { UserService } from '../user/user.service';
-import { UserDetails } from './userdetail.model';
+import {  Component, ElementRef,  Input, OnInit, ViewChild } from '@angular/core';
+ 
 
 @Component({
   selector: 'app-table',
@@ -15,7 +14,7 @@ export class TableComponent implements OnInit {
   count = 0;
   @ViewChild('row') child:ElementRef;
   @Input () userDetails;
-  constructor(private  user:UserService) { }
+  constructor() { }
 
   ngOnInit(): void {
  
@@ -23,7 +22,6 @@ export class TableComponent implements OnInit {
  
   onselect(id,i){
 
-    
       this.userDetails[i].isSelected = !this.userDetails[i].isSelected;
 
       if( this.userDetails[i].isSelected && this.count < 4)
