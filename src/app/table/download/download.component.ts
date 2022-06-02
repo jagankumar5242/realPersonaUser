@@ -26,7 +26,8 @@ export class DownloadComponent implements OnInit {
 
   ngOnInit() {
     this.primengConfig.ripple = true;
+    
+    let selected = this.userselected.find((ele :any) => ele.isSelected);
+    console.log(selected);
   }
-
-
 }
