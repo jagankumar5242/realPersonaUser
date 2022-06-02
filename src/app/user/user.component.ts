@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-user',
@@ -9,10 +10,18 @@ export class UserComponent implements OnInit {
  
   isShow=true
    user:any ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
-   
-  constructor() { }
+   users:any ;
+   userDetails=[];
+  constructor(public userService:UserService) { }
 
   ngOnInit(): void {
+   const data={};
+    this.userService.getDetails(data).subscribe(res =>{
+      this.users=res;
+      console.log(res)
+    },err=>{
+      alert("somthing error occurs")
+    })
   }
 
   taggleCard(){ 
@@ -25,6 +34,5 @@ export class UserComponent implements OnInit {
   cleareFilter( ){
    this.user ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    
-  //  console.Reset()
   } 
 }

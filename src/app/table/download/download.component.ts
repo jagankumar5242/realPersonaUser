@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
-import { UserService } from 'src/app/user.service';
+ 
 
 @Component({
   selector: 'app-download',

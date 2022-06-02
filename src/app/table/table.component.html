@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <div *ngFor ="let x of userdetail;index as i" class="main d-flex mx-auto" (click) = "onselect(x.persona_id,i)" #row 
+    <div *ngFor ="let x of userDetails;index as i" class="main d-flex mx-auto" (click) = "onselect(x.persona_id,i)" #row 
        [ngClass]="{'selected-state': x.isSelected}">
         <div class="imgdiv d-flex" >
             <div class="image">
@@ -29,4 +29,26 @@
     </div>
 </div>
 <br>
-<app-download [userselected] = "userdetail"></app-download>
+<app-download [userselected] = "userDetails"></app-download>
+
+
+
+
+<!-- <div class=" px-0 pad d-flex flex-row align-items-center" style="background-color: red;">
+    <div class="image">
+        <img src="../../assets/images/Rectangle 1.png" alt="" srcset="">
+    </div>
+    <div class="name">
+        <h2>Parvatamma <br> Gowda</h2>
+    </div>
+</div>
+<div class="age px-0 d-flex align-items-center justify-content-center" style="background-color: rgb(158, 116, 116);">
+    <p>58 Years</p>
+</div>
+<div class="occu col-2 px-0  d-flex align-items-center justify-content-center" style="background-color: rgb(58, 156, 55);">
+    <p>987adna</p>
+</div>
+<div class="address col-4 px-0 d-flex align-items-center justify-content-between " style="background-color: rgb(225, 240, 23);">
+    <p>jda897dnn</p>
+    <input type="checkbox" name="" id="">
+</div> -->
