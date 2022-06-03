@@ -46,7 +46,7 @@
     font-weight: 400;
     padding-left: 1rem;  
 }
-.table {
+.table-layout {
     margin-bottom: 0px;
     box-shadow: 0 21px 0 -12px #3144b4;
  }
@@ -65,6 +65,7 @@
     background: #FFF;
     height: 100vh;
     overflow-y: auto;
+    // margin: 1rem;
 }
 .dashboard-inner-container{
     padding: 3rem;
@@ -158,5 +159,25 @@
 .del{
     background-color: #3144B4;
     border: none;
+}  
+.sticky-layout{ 
+    margin-bottom: 0;
+    margin-top: -1px;
+}
+.filter-sticky{
+    position: fixed;
     
+    background:  #F9DAD3;
+    // margin: -1px; 
+}
+.sticky-image{
+     height: 48px;
+     text-align: center;
+}
+.sticky-clear{
+    padding-bottom: 0.5rem;
+}
+.downlod-layout{
+   padding-left: 3rem;
+   right: 0;
 }
