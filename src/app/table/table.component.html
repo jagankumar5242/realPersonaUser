@@ -20,8 +20,10 @@
             </div>
         </div>
         <div class="address d-flex align-items-center">
-            <div class="addr-inner d-flex justify-content-between">
-                <p class="mb-0">{{x.location}}</p>
+            <div class="addr-inner d-flex justify-content-between align-items-center">
+                <p class="mb-0">
+                    {{x.location}}
+                </p>
                 <input *ngIf="x.isSelected" type ="checkbox" [value] = "x.persona_id"  class="form-check-input mt-0" 
                     [checked] = "x.isSelected">
             </div>
@@ -29,4 +31,3 @@
     </div>
 </div>
 <br>
-<app-download [userselected] = "selectedUsers" ></app-download>

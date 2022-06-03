@@ -138,9 +138,9 @@
      </div> 
  </div>
  <div>
-     <button onclick="passData()" class="del"><img src="assets\images\download.svg" alt=""></button>
+     <button (click)="passData($event)" class="del"><img src="assets\images\download.svg" alt=""></button>
  </div>
- 
+ <app-download [userselected] = "selectedUsers" (uncheck) = "uncheckuser($event)"></app-download>
  
 
  

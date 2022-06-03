@@ -12,5 +12,6 @@ export class UserService {
   getDetails(_payLoad:any):Observable<any[]>{
     return this.http.get<any[]>(this.url)
   }
+
 }
 
