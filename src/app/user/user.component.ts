@@ -13,13 +13,14 @@ export class UserComponent implements OnInit {
    user:any ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    users:any ;
    userDetails=[];
+
    showHeader=false;
   constructor(public userService:UserService) { }
 
   ngOnInit(): void {
    const data={};
     this.userService.getDetails(data).subscribe(res =>{
-      this.users=res;
+      this.users = res.filter(data => data.firstname)
       console.log(res)
     },err=>{
       alert("somthing error occurs")
@@ -37,6 +38,9 @@ export class UserComponent implements OnInit {
    this.user ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    
   } 
+  reciveTableData(udata){
+    console.log(udata)
+  }
   receiveCardData(data){
      console.log(data);
   }

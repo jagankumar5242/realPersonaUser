@@ -1,4 +1,5 @@
-import {  Component, ElementRef,  Input, OnInit, ViewChild } from '@angular/core';
+import {  Component, EventEmitter,  Input, OnInit, Output, ViewChild } from '@angular/core';
+import { UserDetails } from './userdetail.model';
  
 
 @Component({
@@ -6,83 +7,48 @@ import {  Component, ElementRef,  Input, OnInit, ViewChild } from '@angular/core
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit {
-  check = false;
-  checkbox = false; 
-  selected = []; 
-  selectedArray = [];
-  count = 0;
-  @ViewChild('row') child:ElementRef;
-  @Input () userDetails;
+export class TableComponent implements OnInit{
+  
+  selectedUsers = [];
+  // selecteduser = this.selectedUsers;
+  @Input() userDetails :any;
+  @Output() selecteduser : EventEmitter<any> =  new EventEmitter<any>(); 
   constructor() { }
 
-  ngOnInit(): void {
- 
-  } 
- 
+  ngOnInit(){
+
+  }
+
+  user:UserDetails[] = [];
+
   onselect(id,i){
-
-      this.userDetails[i].isSelected = !this.userDetails[i].isSelected;
-
-      if( this.userDetails[i].isSelected && this.count < 4)
-      {
-         this.selectedArray.push(this.userDetails[i])
-          this.count++;
-      }
-      else
-      {
-          this.selectedArray.splice(this.selectedArray.indexOf(id,0));
-          this.count--;
-      } 
-
-    // console.log(this.userdetail.indexOf(this.userdetail[i]));
-      console.log( this.userDetails[i].isSelected)
-      // console.log(this.userdetail)
+    if(!this.userDetails[i].isSelected){
       
+      this.selectedUsers = this.userDetails.filter(ele => ele.isSelected);
+
+      if(this.selectedUsers.length < 4){
+        this.userDetails[i].isSelected = !this.userDetails[i].isSelected;
+      }else{
+        alert('You can only select four personas at a time');
+      }
+    }else{
+      this.userDetails[i].isSelected = !this.userDetails[i].isSelected;
+    }
+    this.selectedUsers = this.userDetails.filter(ele => ele.isSelected);
+    
+    console.log(this.selectedUsers);
+
+    this.selecteduser.emit(this.selectedUsers);
+  }
+  
+  uncheckuser(id){
+    for (let index = 0; index < this.userDetails.length; index++) {
+
+      if(this.userDetails[index].persona_id === id && this.userDetails[index].isSelected == true){
+
+        this.userDetails[index].isSelected = false;
+      }        
+    }
   }
 
-  oncheck($event){
-
-    const id = $event.target.value;
-    // if($event.target.checked && id === )
-    // {
-    //   this.checkbox = true;
-    // }
-    // else{
-    //   this.checkbox = false;
-    //   this.child.nativeElement.style = "border:4px solid #3144B4";
-    // }
-    console.log(id)
-  }
-
-  // user = [
-  //   {image:"../../assets/images/Rectangle 1.png",
-  //     fname:"Parvatamma",
-  //     lname:'Gowda',
-  //     age:'58 Years',
-  //     occupation:'Housewife',
-  //     address:'Madurai, Tamil Nadu'
-  //   },
-  //   {image:"../../assets/images/Rectangle 1.png",
-  //     fname:"Parvatamma",
-  //     lname:'Gowda',
-  //     age:'58 Years',
-  //     occupation:'Housewife',
-  //     address:'Madurai, Tamil Nadu'
-  //   },
-  //   {image:"../../assets/images/Rectangle 1.png",
-  //     fname:"Parvatamma",
-  //     lname:'Gowda',
-  //     age:'58 Years',
-  //     occupation:'Housewife',
-  //     address:'Madurai, Tamil Nadu'
-  //   },
-  //   {image:"../../assets/images/Rectangle 1.png",
-  //     fname:"Parvatamma",
-  //     lname:'Gowda',
-  //     age:'58 Years',
-  //     occupation:'Housewife',
-  //     address:'Madurai, Tamil Nadu'
-  //   }
-  // ]   
 }

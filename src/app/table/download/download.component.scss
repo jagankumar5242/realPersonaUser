@@ -1,12 +1,11 @@
 :host ::ng-deep{
     .p-sidebar{
         background-color:#3144B4;
-        color: rgb(204, 12, 12);
     }
+
 }
 
 button{
-
     outline: none;
     background: none;
     color: #F9DAD3;
@@ -69,8 +68,15 @@ button{
     margin-right: 1.5rem;
     margin-top: 1.5rem;
     cursor: pointer;
+    width: 18px;
+    height: 20px;
+    padding: 0;
 }
-
+.svg img{
+    width: 18px;
+    height: 20px;
+    margin: 0;
+}
 
 h2{
 
