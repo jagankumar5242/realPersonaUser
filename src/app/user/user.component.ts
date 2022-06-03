@@ -41,6 +41,12 @@ export class UserComponent implements OnInit {
   reciveTableData(udata){
     console.log(udata)
   }
+  receiveCardData(data){
+     console.log(data);
+  }
+  passData(){
+    this.receiveCardData
+  }
   @HostListener('document:wheel',['$event'])
   scrollfunction(event:Event){
     console.log(event);

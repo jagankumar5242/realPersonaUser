@@ -8,7 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DownloadComponent } from './table/download/download.component';
 import { SidebarModule} from 'primeng/sidebar';
-import { ButtonModule } from 'primeng/button'; 
+import { ButtonModule } from 'primeng/button';
 import { UserComponent } from './user/user.component';
 import { CardsComponent } from './cards/cards.component';
 import { UserService } from './user/user.service';

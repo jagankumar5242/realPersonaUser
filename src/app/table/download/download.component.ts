@@ -25,9 +25,7 @@ export class DownloadComponent implements OnInit {
   
   constructor(private primengConfig: PrimeNGConfig) {}
     
-    ngOnInit() {
-      this.primengConfig.ripple = true;
-    }
+  
     
   //Deleting selected Personas from sidebar(pdf downloading component)
   delete(id,i){
@@ -47,4 +45,11 @@ export class DownloadComponent implements OnInit {
     this.visibleSidebar2 = true;
   }
   
+
+  ngOnInit() {
+    this.primengConfig.ripple = true;
+    
+    let selected = this.userselected.find((ele :any) => ele.isSelected);
+    console.log(selected);
+  }
 }
