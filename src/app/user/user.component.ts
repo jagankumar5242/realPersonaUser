@@ -1,11 +1,21 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { UserService } from './user.service';
+import { trigger, state, transition, style, animate } from '@angular/animations';  
+import { DOCUMENT } from '@angular/common';
 
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
+//   animations:[ 
+//     trigger('fade',
+//     [ 
+//       state('void', style({ opacity : 0})),
+//       transition(':enter',[ animate(300)]),
+//       transition(':leave',[ animate(500)]),
+//     ]
+// )]
 })
 export class UserComponent implements OnInit {
  
@@ -14,7 +24,7 @@ export class UserComponent implements OnInit {
    users:any ;
    userDetails=[];
    showHeader=false;
-  constructor(public userService:UserService) { }
+  constructor(public userService:UserService ,@Inject(DOCUMENT) document) { }
 
   ngOnInit(): void {
    const data={};
@@ -47,6 +57,21 @@ export class UserComponent implements OnInit {
       this.showHeader=false
     }
   }
+
+
+  // @HostListener('window:scroll', ['$event'])
+  // onWindowScroll(e) {
+  //    if (window.pageYOffset > 550) {
+  //      let element = document.getElementById('bottons');
+  //      this.showHeader=true;
+  //      element.classList.add('header');
+  //    } else {
+  //     let element = document.getElementById('bottons');
+  //     this.showHeader=false
+  //       element.classList.remove('header'); 
+  //    }
+  // }
+
 
 
 //   @HostListener('window:scroll', ['$event'])
