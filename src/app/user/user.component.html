@@ -129,13 +129,16 @@
         </div>
         <div class="row table-card mt-48">
             <span *ngIf="isShow" > 
-                <app-cards [userDetails]="users"></app-cards>
+                <app-cards [userDetails]="users" (outputFromCards) = "receiveCardData($event)"></app-cards>
              </span>
              <span *ngIf="!isShow"> 
                 <app-table [userDetails]="users"></app-table>
              </span>
         </div> 
      </div> 
+ </div>
+ <div>
+     <button onclick="passData()" class="del"><img src="assets\images\download.svg" alt=""></button>
  </div>
  
 
