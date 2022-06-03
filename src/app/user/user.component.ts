@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { UserService } from './user.service';
+
 
 @Component({
   selector: 'app-user',
@@ -13,6 +14,7 @@ export class UserComponent implements OnInit {
    users:any ;
    userDetails=[];
 
+   showHeader=false;
   constructor(public userService:UserService) { }
 
   ngOnInit(): void {
@@ -39,4 +41,24 @@ export class UserComponent implements OnInit {
   reciveTableData(udata){
     console.log(udata)
   }
+  @HostListener('document:wheel',['$event'])
+  scrollfunction(event:Event){
+    console.log(event);
+    if (document.body.scrollTop > 100|| document.documentElement.scrollTop > 100 ){
+      this.showHeader=true;
+    }
+    else{
+      this.showHeader=false
+    }
+  }
+
+
+//   @HostListener('window:scroll', ['$event'])
+//    getScrollHeight(event) {
+//     if(window.pageYOffset> 0 )
+//      this.showHeader = true;
+//     else
+//       this.showHeader = false;
+//  }
+
 }

@@ -13,6 +13,7 @@ import { UserComponent } from './user/user.component';
 import { CardsComponent } from './cards/cards.component';
 import { UserService } from './user/user.service';
 import { HttpClientModule } from '@angular/common/http';
+// import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     BrowserAnimationsModule,
     SidebarModule,
-    ButtonModule
+    ButtonModule,
+    // NgxHideOnScrollModule
   ],
   providers: [
     UserService
