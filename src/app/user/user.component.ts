@@ -18,16 +18,17 @@ import { DOCUMENT } from '@angular/common';
 // )]
 })
 export class UserComponent implements OnInit {
- 
-  isShow=true
+  // fixed: boolean = false;
+   isShow=true
    user:any ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    users:any ;
    userDetails=[];
 
-   showHeader=false;
-  constructor(public userService:UserService ,@Inject(DOCUMENT) document) { }
+   showHeader=true;
+  constructor(public userService:UserService , @Inject(DOCUMENT) private doc: Document) { }
 
   ngOnInit(): void {
+    // this.onWindowScroll();
    const data={};
     this.userService.getDetails(data).subscribe(res =>{
       this.users = res.filter(data => data.firstname)
@@ -60,14 +61,26 @@ export class UserComponent implements OnInit {
   @HostListener('document:wheel',['$event'])
   scrollfunction(event:Event){
     console.log(event);
-    if (document.body.scrollTop > 100|| document.documentElement.scrollTop > 100 ){
+    if (document.body.scrollTop > 100|| document.documentElement.scrollTop > 100){
       this.showHeader=true;
+      this.isShow=true;
     }
     else{
-      this.showHeader=false
+      this.showHeader=false;
+      this.isShow=false
     }
   }
-
+    
+  // @HostListener('window:scroll', [])
+  // onWindowScroll() {
+  //     let number = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+  //     if (number > 100) {
+  //         this.fixed = true;
+  //     } else if (this.fixed && number < 10) {
+  //         this.fixed = false;
+  //     }
+  // }
+}
 
   // @HostListener('window:scroll', ['$event'])
   // onWindowScroll(e) {
@@ -92,4 +105,4 @@ export class UserComponent implements OnInit {
 //       this.showHeader = false;
 //  }
 
-}
+ 

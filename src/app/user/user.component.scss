@@ -159,15 +159,17 @@
 .del{
     background-color: #3144B4;
     border: none;
+    padding: 8px;
+    padding-top: 10px;
 }  
 .sticky-layout{ 
     margin-bottom: 0;
     margin-top: -1px;
 }
 .filter-sticky{
-    position: fixed;
-    
-    background:  #F9DAD3;
+   position: fixed;
+   background:#F9DAD3;
+   z-index: 9999;
     // margin: -1px; 
 }
 .sticky-image{
@@ -177,7 +179,23 @@
 .sticky-clear{
     padding-bottom: 0.5rem;
 }
-.downlod-layout{
-   padding-left: 3rem;
-   right: 0;
+ 
+.fixed{
+    position: sticky;
+    top:0;
+    z-index: 999;
 }
+ 
+ 
+// .container {
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: flex-start;
+//     border: 2px dashed rgba(114, 186, 94, 0.35);
+//     height: 400px;
+//     background: rgba(114, 186, 94, 0.05);
+//   }
+//  .shark-1 {
+//     position: sticky;
+//     top: 0;
+//   }
