@@ -1,4 +1,7 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Output, ViewChild, ViewChildren } from '@angular/core';
+import { CardsComponent } from '../cards/cards.component';
+import { DownloadComponent } from '../table/download/download.component';
+import { TableComponent } from '../table/table.component';
 import { UserService } from './user.service';
 
 
@@ -8,11 +11,15 @@ import { UserService } from './user.service';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
- 
+  
   isShow=true
-   user:any ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
-   users:any ;
-   userDetails=[];
+  user:any ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
+  users:any ;
+  userDetails=[];
+
+  //related to sidebar button
+  btnclick = false;
+  @ViewChild(DownloadComponent) downloadComp: DownloadComponent
 
    showHeader=false;
   constructor(public userService:UserService) { }
@@ -38,15 +45,28 @@ export class UserComponent implements OnInit {
    this.user ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    
   } 
+
+  selectedUsers = []
   reciveTableData(udata){
-    console.log(udata)
+    this.selectedUsers = udata;
   }
   receiveCardData(data){
      console.log(data);
+     this.selectedUsers = data;
   }
-  passData(){
-    this.receiveCardData
+
+  //related to sidebar Button
+  passData(event){
+    this.receiveCardData;
+    this.btnclick = !this.btnclick;
+    this.downloadComp.changeView(this.btnclick);
   }
+
+  id;
+  uncheckuser(id){
+      this.id = id;
+  }
+
   @HostListener('document:wheel',['$event'])
   scrollfunction(event:Event){
     console.log(event);

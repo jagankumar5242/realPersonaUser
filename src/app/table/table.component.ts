@@ -1,4 +1,4 @@
-import {  Component, EventEmitter,  Input, OnInit, Output, ViewChild } from '@angular/core';
+import {  Component, EventEmitter,  Input, OnInit, Output} from '@angular/core';
 import { UserDetails } from './userdetail.model';
  
 
@@ -13,6 +13,7 @@ export class TableComponent implements OnInit{
   // selecteduser = this.selectedUsers;
   @Input() userDetails :any;
   @Output() selecteduser : EventEmitter<any> =  new EventEmitter<any>(); 
+  
   constructor() { }
 
   ngOnInit(){
@@ -36,12 +37,12 @@ export class TableComponent implements OnInit{
     }
     this.selectedUsers = this.userDetails.filter(ele => ele.isSelected);
     
-    console.log(this.selectedUsers);
-
     this.selecteduser.emit(this.selectedUsers);
   }
-  
+
+
   uncheckuser(id){
+
     for (let index = 0; index < this.userDetails.length; index++) {
 
       if(this.userDetails[index].persona_id === id && this.userDetails[index].isSelected == true){

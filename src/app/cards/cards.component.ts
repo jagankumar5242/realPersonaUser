@@ -50,4 +50,5 @@ export class CardsComponent implements OnInit {
     // console.log(selected);
     this.outputFromCards.emit(selected);
   }
+
 }
