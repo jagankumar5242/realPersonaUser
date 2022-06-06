@@ -61,7 +61,9 @@
              <span> Real <img src="assets\images\heading image.svg" alt=""> people  <br> for your persona</span>
         </div>
         <div class="delete">
-            <button  (click)="passData($event)" class="del"><img src="assets\images\download.svg" alt=""> <img *ngIf="showDot" class="dot" src="assets\images\redDot.svg" alt=""></button>
+            <button  (click)="passData($event)" class="del"><img src="assets\images\download.svg"> 
+                <div class="dot" *ngIf="showDot"></div>
+            </button>
         </div> 
         <div class="position-relative col-10 table-main-div mt-48" >
             <div class="filter-layout ml-32   col-10" >
@@ -149,10 +151,8 @@
         </div> 
      </div> 
  </div>
- <!-- <div>
-      <button (click)="passData($event)" class="del"><img src="assets\images\download.svg" alt=""></button> 
- </div> -->
  <app-download [userselected] = "selectedUsers" (uncheck) = "uncheckuser($event)"></app-download>
  
 
  
+ <!-- <img *ngIf="showDot" class="dot" src="assets\images\redDot.svg" alt=""> -->

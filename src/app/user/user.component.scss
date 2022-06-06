@@ -190,7 +190,12 @@
     border-radius: 28px;
 }
 .dot{
-    margin-bottom: 35px;
+    width: 10px;
+    height: 10px;
+    background-color:#FF0000;
+    border-radius: 5px;
+    border: 2px solid #F9DAD3;
     position: absolute;
-    right: 8px;
+    right: 5px;
+    top: 5px;
 }
