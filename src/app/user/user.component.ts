@@ -24,11 +24,11 @@ import { DOCUMENT } from '@angular/common';
 export class UserComponent implements OnInit {
   // fixed: boolean = false;
    isShow=true
-   user:any ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
-   users:any ;
+   user:any ={age:'18-30',gender:'Male',location:'Delhi',occupation:'Farmer'};
+   users:any = [] ;
    age:string[]=[' 18 - 30 years','30 - 45 years','45 - 60 years','60 - 80 years'];
-   location:string[]=['Tamilnadu','Andhra Pradhesh','Maharastra','kerala'];
-   occupation:string[]=['Doctor','Engineer','Student','Manager'];
+   location:string[]=['Delhi',' Mumbai',' Hyderabad','Bangalore'];
+   occupation:string[]=['Receptionist','CEO',' Daily Labour','Receptionist',' Software Engineer'];
    userDetails=[]; 
    showHeader=true;
    showDot = false ;
