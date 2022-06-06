@@ -12,16 +12,17 @@ import { UserService } from './user.service';
 })
 export class UserComponent implements OnInit {
   
-  isShow=true
+  isShow=true;
+  showDot = false ;
   user:any ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
   users:any ;
   userDetails=[];
 
   //related to sidebar button
   btnclick = false;
-  @ViewChild(DownloadComponent) downloadComp: DownloadComponent
+  @ViewChild(DownloadComponent) downloadComp: DownloadComponent;
+  @ViewChild(CardsComponent) cardComp: CardsComponent;
   @ViewChild(TableComponent) tableComp: TableComponent
-  @ViewChild(CardsComponent) cardComp: CardsComponent
 
    showHeader=false;
   constructor(public userService:UserService) { }
@@ -47,16 +48,28 @@ export class UserComponent implements OnInit {
    this.user ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    
   } 
+  // receiveCardData(data: any){
+  //    console.log(data);
+  //    this.passData(data)
+  // }
+  // passData(data : any){
+  //   return data;
 
   selectedUsers = []
   reciveTableData(udata){
     this.selectedUsers = udata;
-    console.log(this.selectedUsers)
+    this.showDot = true;
+    if(this.selectedUsers.length == 0){
+      this.showDot = false;
+    }
   }
   receiveCardData(data){
-     console.log(data);
+    //  console.log(data);
      this.selectedUsers = data;
-     console.log(this.selectedUsers)
+     this.showDot = true ;
+     if(this.selectedUsers.length == 0){
+       this.showDot = false;
+     }
   }
 
   //related to sidebar Button

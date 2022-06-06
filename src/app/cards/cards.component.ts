@@ -50,7 +50,6 @@ export class CardsComponent implements OnInit {
     // console.log(selected);
     this.outputFromCards.emit(selected);
   }
-
   uncheckuser(id){
 
     for (let index = 0; index < this.userDetails.length; index++) {
