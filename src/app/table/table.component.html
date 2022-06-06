@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container  row mt-5 mx-auto">
     <div *ngFor ="let x of userDetails;index as i" class="main d-flex mx-auto" (click) = "onselect(x.persona_id,i)" #row 
        [ngClass]="{'selected-state': x.isSelected}">
         <div class="imgdiv d-flex" >

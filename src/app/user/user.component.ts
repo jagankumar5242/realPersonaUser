@@ -20,6 +20,8 @@ export class UserComponent implements OnInit {
   //related to sidebar button
   btnclick = false;
   @ViewChild(DownloadComponent) downloadComp: DownloadComponent
+  @ViewChild(TableComponent) tableComp: TableComponent
+  @ViewChild(CardsComponent) cardComp: CardsComponent
 
    showHeader=false;
   constructor(public userService:UserService) { }
@@ -49,10 +51,12 @@ export class UserComponent implements OnInit {
   selectedUsers = []
   reciveTableData(udata){
     this.selectedUsers = udata;
+    console.log(this.selectedUsers)
   }
   receiveCardData(data){
      console.log(data);
      this.selectedUsers = data;
+     console.log(this.selectedUsers)
   }
 
   //related to sidebar Button
@@ -62,9 +66,15 @@ export class UserComponent implements OnInit {
     this.downloadComp.changeView(this.btnclick);
   }
 
-  id;
+
   uncheckuser(id){
-      this.id = id;
+      if(this.isShow == true){
+        this.cardComp.uncheckuser(id);
+      }
+      else{
+        this.tableComp.uncheckuser(id);
+      }
+      console.log(this.selectedUsers)
   }
 
   @HostListener('document:wheel',['$event'])

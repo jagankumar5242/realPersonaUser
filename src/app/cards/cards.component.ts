@@ -51,4 +51,14 @@ export class CardsComponent implements OnInit {
     this.outputFromCards.emit(selected);
   }
 
+  uncheckuser(id){
+
+    for (let index = 0; index < this.userDetails.length; index++) {
+
+      if(this.userDetails[index].persona_id === id && this.userDetails[index].isSelected == true){
+
+        this.userDetails[index].isSelected = false;
+      }        
+    }
+  }
 }
