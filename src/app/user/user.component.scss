@@ -161,6 +161,7 @@
     border: none;
     height: 48px;
     width: 48px;
+    // padding: 10px;
     position: relative;
     margin-right: -45px;
 }  
@@ -187,4 +188,9 @@
 .delete{
     text-align: right;
     border-radius: 28px;
+}
+.dot{
+    margin-bottom: 35px;
+    position: absolute;
+    right: 8px;
 }

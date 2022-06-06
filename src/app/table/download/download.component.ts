@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
- 
 
 @Component({
   selector: 'app-download',
@@ -8,26 +7,36 @@ import { PrimeNGConfig } from 'primeng/api';
   styleUrls: ['./download.component.scss']
 })
 export class DownloadComponent implements OnInit {
-
+  
   @Input() userselected:any;
-
-  visibleSidebar1;
-    
+  @Output() uncheck = new EventEmitter<any>(); 
+  
   visibleSidebar2;
-  
-  visibleSidebar3;
-  
-  visibleSidebar4;
-  
-  visibleSidebar5;
-
-
+   
   constructor(private primengConfig: PrimeNGConfig) {}
 
+  //Deleting selected Personas from sidebar(pdf downloading component)
+  delete(id,i){
+    this.userselected.splice(i, 1);
+    this.uncheck.emit(id);
+  }
+  
+  
+  //downloading selected personas
+  download(){
+    
+    alert("Not working!!!")
+    // this.http.get<any>('http://199.34.21.254/persona/generate-pdf',id)
+  }
+  
   ngOnInit() {
     this.primengConfig.ripple = true;
     
     let selected = this.userselected.find((ele :any) => ele.isSelected);
     console.log(selected);
+  }
+
+  changeView(isVisible: boolean){
+    this.visibleSidebar2 = isVisible;
   }
 }

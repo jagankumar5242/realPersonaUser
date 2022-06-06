@@ -61,7 +61,7 @@
              <span> Real <img src="assets\images\heading image.svg" alt=""> people  <br> for your persona</span>
         </div>
         <div class="delete">
-            <button onclick="passData()" class="del"><img src="assets\images\download.svg" alt=""></button>
+            <button  (click)="passData($event)" class="del"><img src="assets\images\download.svg" alt=""> <img *ngIf="showDot" class="dot" src="assets\images\redDot.svg" alt=""></button>
         </div> 
         <div class="position-relative col-10 table-main-div mt-48" >
             <div class="filter-layout ml-32   col-10" >
@@ -132,7 +132,7 @@
         <div class="row table-card mt-48">
             <span *ngIf="isShow" > 
                 <app-cards [userDetails]="users" (outputFromCards) = "receiveCardData($event)"></app-cards>
-            </span>
+            <!-- </span>
             <span *ngIf="!isShow"> 
                 <app-table [userDetails]="users"></app-table>
             </span>
@@ -141,4 +141,18 @@
             </span>
         </div> 
      </div> 
+ </div> -->
+             </span>
+             <span *ngIf="!isShow"> 
+                <app-table [userDetails]="users" (selecteduser) = "reciveTableData($event)"></app-table>
+             </span>
+        </div> 
+     </div> 
  </div>
+ <!-- <div>
+      <button (click)="passData($event)" class="del"><img src="assets\images\download.svg" alt=""></button> 
+ </div> -->
+ <app-download [userselected] = "selectedUsers" (uncheck) = "uncheckuser($event)"></app-download>
+ 
+
+ 
