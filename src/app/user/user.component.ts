@@ -1,4 +1,8 @@
-import { Component, HostListener, Inject, OnInit } from '@angular/core';
+
+import { Component, HostListener, Inject, OnInit, Output, ViewChild, ViewChildren } from '@angular/core';
+import { CardsComponent } from '../cards/cards.component';
+import { DownloadComponent } from '../table/download/download.component';
+import { TableComponent } from '../table/table.component';
 import { UserService } from './user.service';
 import { trigger, state, transition, style, animate } from '@angular/animations';  
 import { DOCUMENT } from '@angular/common';
@@ -27,8 +31,18 @@ export class UserComponent implements OnInit {
    occupation:string[]=['Doctor','Engineer','Student','Manager'];
    userDetails=[]; 
    showHeader=true;
+   showDot = false ;
   constructor(public userService:UserService , @Inject(DOCUMENT) private doc: Document) { }
+  
+  
+  //related to sidebar button
+  btnclick = false;
+  @ViewChild(DownloadComponent) downloadComp: DownloadComponent;
+  @ViewChild(CardsComponent) cardComp: CardsComponent;
+  @ViewChild(TableComponent) tableComp: TableComponent
 
+   
+ 
   ngOnInit(): void {
     // this.onWindowScroll();
    const data={};
@@ -51,15 +65,51 @@ export class UserComponent implements OnInit {
    this.user ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    
   } 
+  // receiveCardData(data: any){
+  //    console.log(data);
+  //    this.passData(data)
+  // }
+  // passData(data : any){
+  //   return data;
+
+  selectedUsers = []
   reciveTableData(udata){
-    console.log(udata)
+    this.selectedUsers = udata;
+    this.showDot = true;
+    if(this.selectedUsers.length == 0){
+      this.showDot = false;
+    }
   }
   receiveCardData(data){
-     console.log(data);
+    //  console.log(data);
+     this.selectedUsers = data;
+     this.showDot = true ;
+     if(this.selectedUsers.length == 0){
+       this.showDot = false;
+     }
   }
-  passData(){
-    this.receiveCardData
+
+  //related to sidebar Button
+  passData(event){
+    this.receiveCardData;
+    this.btnclick = !this.btnclick;
+    this.downloadComp.changeView(this.btnclick);
   }
+
+  id;
+  // uncheckuser(id){
+  //     this.id = id;
+  // }
+  uncheckuser(id){
+    if(this.isShow == true){
+      this.cardComp.uncheckuser(id);
+    }
+    else{
+      this.tableComp.uncheckuser(id);
+    }
+    console.log(this.selectedUsers)
+}
+
   @HostListener('document:wheel',['$event'])
   scrollfunction(event:Event){
     console.log(event);
