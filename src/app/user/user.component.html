@@ -10,9 +10,9 @@
                      <span class="select"   >
                         <select name="form-select" id=""  [(ngModel)]="user.age" class="select-inner col-10"  >
                             <option class="drop-down" value="18-30" > 18 - 30</option>
-                            <option class="drop-down" value="30-45"> 30 - 45 years</option>
-                            <option class="drop-down" value="45-60"> 45 - 60 years</option>
-                            <option class="drop-down" value="60-80"> 60 - 80 years</option>    
+                            <option *ngFor="let age of age" [value]="age">
+                                {{age}}
+                            </option> 
                         </select>
                      </span>  
                    </td>
@@ -28,9 +28,9 @@
                         <span class="select">
                             <select name="form-select" id="" [(ngModel)]="user.location" class="select-inner col-10">
                                 <option class="drop-down" value="Karnataka">Karnataka</option>
-                                <option class="drop-down" value="Tamilnadu">Tamilnadu</option>
-                                <option class="drop-down" value="Andhra pradhesh">Andhra pradhesh</option>
-                                <option  class="drop-down" value="Maharastra"> Maharastra</option>
+                                <option *ngFor="let location of location" [value]="location">
+                                    {{location}}
+                                </option>
                             </select>
                          </span>  
                     </td>
@@ -38,15 +38,14 @@
                         <span class="select">
                             <select name="form-select" id=""  [(ngModel)]="user.occupation" class="select-inner col-10">
                                 <option class="drop-down" value="Farmer">Farmer</option>
-                                <option class="drop-down" value="Doctor">Doctor</option>
-                                <option class="drop-down" value="Student">Student</option>
-                                <option class="drop-down" value="Engineer">Engineer</option>
+                                <option *ngFor="let occupation of occupation" [value]="occupation">
+                                    {{occupation}}
+                                </option>
                             </select>
                          </span>  
                     </td>
                     <td class="sticky-clear col-2">
-                        <label class="sticky-clear mx-4" (click)="cleareFilter()">Clear Filters</label>
-                         <!-- <app-download [userselected] ="userDetails"></app-download>   -->
+                        <label class="sticky-clear mx-4" (click)="cleareFilter()">Clear Filters</label> 
                          <button onclick="passData()" class="del"><img src="assets\images\download.svg" alt=""></button>  
                     </td>
                 </tr>
@@ -67,16 +66,16 @@
                 <table class="table table-layout" >
                     <thead> 
                     <tr class="table-row">
-                        <!-- <td class=" col-2 sticky-image" *ngIf="!isShow">
+                        <td class=" col-2 sticky-image" *ngIf="!showHeader">
                             <img class="sticky-image" src="assets\images\heading image.svg" alt="">
-                        </td> -->
+                        </td>
                         <td class="col-3" for="age" > Age  <br> 
                          <span class="select"   >
                             <select name="form-select" id=""  [(ngModel)]="user.age" class="select-inner col-10"  >
                                 <option class="drop-down" value="18-30" > 18 - 30</option>
-                                <option class="drop-down" value="30-45"> 30 - 45 years</option>
-                                <option class="drop-down" value="45-60"> 45 - 60 years</option>
-                                <option class="drop-down" value="60-80"> 60 - 80 years</option>    
+                                <option class="drop-down" *ngFor="let age of age" [value]="age">
+                                    {{age}}
+                                </option>
                             </select>
                          </span>  
                        </td>
@@ -92,9 +91,9 @@
                             <span class="select">
                                 <select name="form-select" id="" [(ngModel)]="user.location" class="select-inner col-10">
                                     <option class="drop-down" value="Karnataka">Karnataka</option>
-                                    <option class="drop-down" value="Tamilnadu">Tamilnadu</option>
-                                    <option class="drop-down" value="Andhra pradhesh">Andhra pradhesh</option>
-                                    <option  class="drop-down" value="Maharastra"> Maharastra</option>
+                                    <option  class="drop-down" *ngFor="let location of location" [value]="location">
+                                        {{location}}
+                                    </option>
                                 </select>
                              </span>  
                         </td>
@@ -102,17 +101,16 @@
                             <span class="select">
                                 <select name="form-select" id=""  [(ngModel)]="user.occupation" class="select-inner col-10">
                                     <option class="drop-down" value="Farmer">Farmer</option>
-                                    <option class="drop-down" value="Doctor">Doctor</option>
-                                    <option class="drop-down" value="Student">Student</option>
-                                    <option class="drop-down" value="Engineer">Engineer</option>
+                                    <option class="drop-down" *ngFor="let occupation of occupation" [value]="occupation">
+                                        {{occupation}}
+                                    </option>
                                 </select>
                              </span>  
                         </td>
-                        <!-- <td class="sticky-clear col-3" *ngIf="!isShow">
-                            <label class="sticky-clear mx-4" (click)="cleareFilter()">Clear Filters</label>
-                            <app-download [userselected] ="userDetails"></app-download> 
-                            <button onclick="passData()" class="del"><img src="assets\images\download.svg" alt=""></button>  
-                        </td> -->
+                    <!-- header content on sticky -->
+                        <td class="sticky-clear col-2" *ngIf="!showHeader">
+                            <label class="sticky-clear mx-4" (click)="cleareFilter()">Clear Filters</label> 
+                        </td>
                     </tr>
                    </thead>
                 </table>       
@@ -124,18 +122,19 @@
                 <div class="col-4 ">
                     <label class="clear" (click)="cleareFilter()">Clear Filters</label>
                 </div>   
-             </div> 
-            <div id="bottons" class="row col-12 bottom-text-layout ">
-                <div class="col-6">
-                    <label for="" class="small-text">displaying</label>
-                    <p class="person-text"> {{users.length}}  personas</p>
-                </div>
-                <div class="col-6 buttons ">
-                    <button class="button submit-text col-3" [ngClass]="{'submit-text2':isShow}"  (click)="taggleCard()"><img src="assets\images\card.svg" alt=""> Card</button>
-                    <button class="button submit-text col-3"  [ngClass]="{'submit-text2':!isShow}"  (click)="taggleTable()" > <img src="assets\images\table.svg" alt="">  Table</button>
-                </div>
-             </div>
+            </div> 
         </div>
+
+        <div id="bottons" class="row col-12 bottom-text-layout ">
+            <div class="col-6">
+                <label for="" class="small-text">displaying</label>
+                <p class="person-text"> {{users.length}}  personas</p>
+            </div>
+            <div class="col-6 buttons ">
+                <button class="button submit-text col-2" [ngClass]="{'submit-text2':isShow}"  (click)="taggleCard()"><img src="assets\images\card.svg" alt=""> Card</button>
+                <button class="button submit-text col-2"  [ngClass]="{'submit-text2':!isShow}"  (click)="taggleTable()" > <img src="assets\images\table.svg" alt="">  Table</button>
+            </div>
+         </div>
         <div class="row table-card mt-48  ">
             <span *ngIf="isShow" > 
                 <app-cards [userDetails]="users" (outputFromCards) = "receiveCardData($event)"></app-cards>

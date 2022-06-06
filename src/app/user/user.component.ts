@@ -22,8 +22,10 @@ export class UserComponent implements OnInit {
    isShow=true
    user:any ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    users:any ;
-   userDetails=[];
-
+   age:string[]=[' 18 - 30 years','30 - 45 years','45 - 60 years','60 - 80 years'];
+   location:string[]=['Tamilnadu','Andhra Pradhesh','Maharastra','kerala'];
+   occupation:string[]=['Doctor','Engineer','Student','Manager'];
+   userDetails=[]; 
    showHeader=true;
   constructor(public userService:UserService , @Inject(DOCUMENT) private doc: Document) { }
 
@@ -63,11 +65,11 @@ export class UserComponent implements OnInit {
     console.log(event);
     if (document.body.scrollTop > 100|| document.documentElement.scrollTop > 100){
       this.showHeader=true;
-      this.isShow=true;
+       //this.isShow=true;
     }
     else{
       this.showHeader=false;
-      this.isShow=false
+      //this.isShow=false
     }
   }
     
