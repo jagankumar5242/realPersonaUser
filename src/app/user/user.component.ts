@@ -37,11 +37,12 @@ export class UserComponent implements OnInit {
    this.user ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    
   } 
-  receiveCardData(data){
+  receiveCardData(data: any){
      console.log(data);
+     this.passData(data)
   }
-  passData(){
-    this.receiveCardData
+  passData(data : any){
+    return data;
   }
   @HostListener('document:wheel',['$event'])
   scrollfunction(event:Event){
