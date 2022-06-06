@@ -159,14 +159,18 @@
 .del{
     background-color: #3144B4;
     border: none;
+    height: 48px;
+    width: 48px;
+    // padding: 10px;
+    position: relative;
+    margin-right: -45px;
 }  
 .sticky-layout{ 
     margin-bottom: 0;
     margin-top: -1px;
 }
 .filter-sticky{
-    position: fixed;
-    
+    position: fixed;  
     background:  #F9DAD3;
     // margin: -1px; 
 }
@@ -180,4 +184,18 @@
 .downlod-layout{
    padding-left: 3rem;
    right: 0;
+}
+.delete{
+    text-align: right;
+    border-radius: 28px;
+}
+.dot{
+    width: 10px;
+    height: 10px;
+    background-color:#FF0000;
+    border-radius: 5px;
+    border: 2px solid #F9DAD3;
+    position: absolute;
+    right: 5px;
+    top: 5px;
 }

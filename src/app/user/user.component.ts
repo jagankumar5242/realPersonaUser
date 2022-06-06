@@ -12,14 +12,17 @@ import { UserService } from './user.service';
 })
 export class UserComponent implements OnInit {
   
-  isShow=true
+  isShow=true;
+  showDot = false ;
   user:any ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
   users:any ;
   userDetails=[];
 
   //related to sidebar button
   btnclick = false;
-  @ViewChild(DownloadComponent) downloadComp: DownloadComponent
+  @ViewChild(DownloadComponent) downloadComp: DownloadComponent;
+  @ViewChild(CardsComponent) cardComp: CardsComponent;
+  @ViewChild(TableComponent) tableComp: TableComponent
 
    showHeader=false;
   constructor(public userService:UserService) { }
@@ -45,14 +48,28 @@ export class UserComponent implements OnInit {
    this.user ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    
   } 
+  // receiveCardData(data: any){
+  //    console.log(data);
+  //    this.passData(data)
+  // }
+  // passData(data : any){
+  //   return data;
 
   selectedUsers = []
   reciveTableData(udata){
     this.selectedUsers = udata;
+    this.showDot = true;
+    if(this.selectedUsers.length == 0){
+      this.showDot = false;
+    }
   }
   receiveCardData(data){
-     console.log(data);
+    //  console.log(data);
      this.selectedUsers = data;
+     this.showDot = true ;
+     if(this.selectedUsers.length == 0){
+       this.showDot = false;
+     }
   }
 
   //related to sidebar Button
@@ -63,9 +80,18 @@ export class UserComponent implements OnInit {
   }
 
   id;
+  // uncheckuser(id){
+  //     this.id = id;
+  // }
   uncheckuser(id){
-      this.id = id;
-  }
+    if(this.isShow == true){
+      this.cardComp.uncheckuser(id);
+    }
+    else{
+      this.tableComp.uncheckuser(id);
+    }
+    console.log(this.selectedUsers)
+}
 
   @HostListener('document:wheel',['$event'])
   scrollfunction(event:Event){

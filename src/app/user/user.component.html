@@ -60,7 +60,11 @@
         <div class="text-large col-10 ml-32">
              <span> Real <img src="assets\images\heading image.svg" alt=""> people  <br> for your persona</span>
         </div>
-        
+        <div class="delete">
+            <button  (click)="passData($event)" class="del"><img src="assets\images\download.svg"> 
+                <div class="dot" *ngIf="showDot"></div>
+            </button>
+        </div> 
         <div class="position-relative col-10 table-main-div mt-48" >
             <div class="filter-layout ml-32   col-10" >
                 <table class="table table-layout">
@@ -115,7 +119,7 @@
                 <div class="col-4 ">
                     <label class="clear" (click)="cleareFilter()">Clear Filters</label>
                 </div>   
-             </div> 
+             </div>
             <div id="bottons" class="row col-12 bottom-text-layout ">
                 <div class="col-6">
                     <label for="" class="small-text">displaying</label>
@@ -130,6 +134,16 @@
         <div class="row table-card mt-48">
             <span *ngIf="isShow" > 
                 <app-cards [userDetails]="users" (outputFromCards) = "receiveCardData($event)"></app-cards>
+            <!-- </span>
+            <span *ngIf="!isShow"> 
+                <app-table [userDetails]="users"></app-table>
+            </span>
+            <span>
+                <app-download [userselected] = "passData"></app-download>
+            </span>
+        </div> 
+     </div> 
+ </div> -->
              </span>
              <span *ngIf="!isShow"> 
                 <app-table [userDetails]="users" (selecteduser) = "reciveTableData($event)"></app-table>
@@ -137,10 +151,8 @@
         </div> 
      </div> 
  </div>
- <div>
-     <button (click)="passData($event)" class="del"><img src="assets\images\download.svg" alt=""></button>
- </div>
  <app-download [userselected] = "selectedUsers" (uncheck) = "uncheckuser($event)"></app-download>
  
 
  
+ <!-- <img *ngIf="showDot" class="dot" src="assets\images\redDot.svg" alt=""> -->
