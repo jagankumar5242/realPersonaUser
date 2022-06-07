@@ -96,19 +96,16 @@ export class UserComponent implements OnInit {
     this.downloadComp.changeView(this.btnclick);
   }
 
-  id;
-  // uncheckuser(id){
-  //     this.id = id;
-  // }
+
   uncheckuser(id){
-    if(this.isShow == true){
-      this.cardComp.uncheckuser(id);
-    }
-    else{
-      this.tableComp.uncheckuser(id);
-    }
-    console.log(this.selectedUsers)
-}
+      if(this.isShow == true){
+        this.cardComp.uncheckuser(id);
+      }
+      else{
+        this.tableComp.uncheckuser(id);
+      }
+      console.log(this.selectedUsers)
+  }
 
   @HostListener('document:wheel',['$event'])
   scrollfunction(event:Event){

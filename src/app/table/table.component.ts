@@ -22,7 +22,7 @@ export class TableComponent implements OnInit{
 
   user:UserDetails[] = [];
 
-  onselect(id,i){
+  onselect(i){
     if(!this.userDetails[i].isSelected){
       
       this.selectedUsers = this.userDetails.filter(ele => ele.isSelected);
