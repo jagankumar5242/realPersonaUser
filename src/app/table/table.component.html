@@ -1,5 +1,5 @@
-<div class="container mt-5">
-    <div *ngFor ="let x of userDetails;index as i" class="main d-flex mx-auto" (click) = "onselect(x.persona_id,i)" #row 
+<div class="container row mt-5 mx-auto">
+    <div *ngFor ="let x of userDetails;index as i" class="main d-flex mx-auto" (click) = "onselect(i)" #row 
        [ngClass]="{'selected-state': x.isSelected}">
         <div class="imgdiv d-flex" >
             <div class="image">
@@ -9,9 +9,9 @@
                 <h2>{{x.firstname}}<br>{{x.lastname}}</h2>
             </div>
         </div>
-        <div class="age d-flex">
+        <div class="age d-flex kpo">
             <div class="age-main d-flex align-items-center justify-content-center" >
-                <p class="mb-0">{{x.age}}</p>
+                <p class="mb-0">{{x.age}} Years</p>
             </div>
         </div>
         <div class="occupation d-flex">
