@@ -16,7 +16,7 @@ export class UserComponent implements OnInit {
   showDot = false ;
   user:any ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
   users:any ;
-  userDetails=[];
+  userDetails=[]; 
 
   //related to sidebar button
   btnclick = false;
@@ -44,17 +44,10 @@ export class UserComponent implements OnInit {
   this.isShow=false
   }
 
-  cleareFilter( ){
+  cleareFilter(){
    this.user ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    
   } 
-  // receiveCardData(data: any){
-  //    console.log(data);
-  //    this.passData(data)
-  // }
-  // passData(data : any){
-  //   return data;
-
   selectedUsers = []
   reciveTableData(udata){
     this.selectedUsers = udata;
@@ -64,7 +57,6 @@ export class UserComponent implements OnInit {
     }
   }
   receiveCardData(data){
-    //  console.log(data);
      this.selectedUsers = data;
      this.showDot = true ;
      if(this.selectedUsers.length == 0){
@@ -79,10 +71,6 @@ export class UserComponent implements OnInit {
     this.downloadComp.changeView(this.btnclick);
   }
 
-  id;
-  // uncheckuser(id){
-  //     this.id = id;
-  // }
   uncheckuser(id){
     if(this.isShow == true){
       this.cardComp.uncheckuser(id);
@@ -103,14 +91,4 @@ export class UserComponent implements OnInit {
       this.showHeader=false
     }
   }
-
-
-//   @HostListener('window:scroll', ['$event'])
-//    getScrollHeight(event) {
-//     if(window.pageYOffset> 0 )
-//      this.showHeader = true;
-//     else
-//       this.showHeader = false;
-//  }
-
 }
