@@ -39,7 +39,7 @@
                             <select name="form-select" id=""  [(ngModel)]="user.occupation" class="select-inner col-10">
                                 <option class="drop-down" value="Farmer">Farmer</option>
                                 <option class="drop-down" *ngFor="let occupation of occupation" [value]="occupation">
-                                    {{occupation}}
+                                    {{occupation.users}}
                                 </option>
                             </select>
                          </span>  

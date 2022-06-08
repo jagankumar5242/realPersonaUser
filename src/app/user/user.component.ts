@@ -28,7 +28,7 @@ export class UserComponent implements OnInit {
    users:any = [] ;
    age:string[]=[' 18 - 30 years','30 - 45 years','45 - 60 years','60 - 80 years'];
    location:string[]=[' Mumbai',' Hyderabad','Bangalore'];
-   occupation:string[]=['Receptionist','CEO',' Daily Labour','Receptionist',' Software Engineer'];
+   occupation: any=['Receptionist','Daily Labour',' Software Engineer','CEO'];
    userDetails=[]; 
    showHeader=true;
    showDot = false ;
@@ -47,10 +47,17 @@ export class UserComponent implements OnInit {
    const data={};
     this.userService.getDetails(data).subscribe(res =>{
       this.users = res.filter(data => data.firstname)
+      //this.occupation=res.filter(data =>data.occupation)
       console.log(res)
     },err=>{
       alert("somthing error occurs")
     })
+    // this.userService.getlocation(data).subscribe(res =>{
+    //   this.location=res.filter(data => data.locations)
+    // },err =>{
+    //  alert('location is not avialable')
+    // });
+    
   }
 
   taggleCard(){ 
