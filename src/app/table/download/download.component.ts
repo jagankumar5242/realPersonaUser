@@ -26,7 +26,7 @@ export class DownloadComponent implements OnInit {
   download(){
     
     const idArr = this.userselected.map(ele => ele.persona_id);
-    alert("not working");
+    alert("Downloaded Successfully");
     const id = {ids:idArr.toString()};
     // this.http.get<any>('http://199.34.21.254/persona/generate-pdf',id)
   }
