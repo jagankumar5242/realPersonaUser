@@ -131,7 +131,6 @@
 .buttons{
     padding-top: 1.5rem;
     text-align: end;
-    position: absolute;
     right: -8rem;
 .submit-text2{
     box-shadow: 0 19px 0 -16px #3144b4;
@@ -170,8 +169,10 @@
     margin-top: -1px;
 }
 .filter-sticky{
-    position: fixed;  
-    background:  #F9DAD3;
+   position: fixed;
+   background:#F9DAD3;
+   z-index: 9999;
+    
     // margin: -1px; 
 }
 .sticky-image{
@@ -181,6 +182,26 @@
 .sticky-clear{
     padding-bottom: 0.5rem;
 }
+ 
+.fixed{
+    position: sticky;
+    top:0;
+    z-index: 999;
+}
+ 
+ 
+// .container {
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: flex-start;
+//     border: 2px dashed rgba(114, 186, 94, 0.35);
+//     height: 400px;
+//     background: rgba(114, 186, 94, 0.05);
+//   }
+//  .shark-1 {
+//     position: sticky;
+//     top: 0;
+//   }
 .downlod-layout{
    padding-left: 3rem;
    right: 0;
