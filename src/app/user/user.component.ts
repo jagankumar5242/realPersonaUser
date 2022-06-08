@@ -24,17 +24,17 @@ import { DOCUMENT } from '@angular/common';
 export class UserComponent implements OnInit {
   // fixed: boolean = false;
    isShow=true
-   user:any ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
-   users:any ;
+   user:any ={age:'18-30',gender:'Male',location:'Delhi',occupation:'Farmer'};
+   users:any = [] ;
    age:string[]=[' 18 - 30 years','30 - 45 years','45 - 60 years','60 - 80 years'];
-   location:string[]=['Tamilnadu','Andhra Pradhesh','Maharastra','kerala'];
-   occupation:string[]=['Doctor','Engineer','Student','Manager'];
+   location:string[]=[' Mumbai',' Hyderabad','Bangalore'];
+   occupation: any=['Receptionist','Daily Labour',' Software Engineer','CEO'];
    userDetails=[]; 
    showHeader=true;
    showDot = false ;
+  
   constructor(public userService:UserService , @Inject(DOCUMENT) private doc: Document) { }
-  
-  
+
   //related to sidebar button
   btnclick = false;
   @ViewChild(DownloadComponent) downloadComp: DownloadComponent;
@@ -44,14 +44,20 @@ export class UserComponent implements OnInit {
    
  
   ngOnInit(): void {
-    // this.onWindowScroll();
    const data={};
     this.userService.getDetails(data).subscribe(res =>{
       this.users = res.filter(data => data.firstname)
+      //this.occupation=res.filter(data =>data.occupation)
       console.log(res)
     },err=>{
       alert("somthing error occurs")
     })
+    // this.userService.getlocation(data).subscribe(res =>{
+    //   this.location=res.filter(data => data.locations)
+    // },err =>{
+    //  alert('location is not avialable')
+    // });
+    
   }
 
   taggleCard(){ 
@@ -62,15 +68,10 @@ export class UserComponent implements OnInit {
   }
 
   cleareFilter( ){
-   this.user ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
+   this.user ={age:'18-30',gender:'Male',location:'Delhi',occupation:'Farmer'};
    
   } 
-  // receiveCardData(data: any){
-  //    console.log(data);
-  //    this.passData(data)
-  // }
-  // passData(data : any){
-  //   return data;
+ 
 
   selectedUsers = []
   reciveTableData(udata){
@@ -110,13 +111,11 @@ export class UserComponent implements OnInit {
   @HostListener('document:wheel',['$event'])
   scrollfunction(event:Event){
     console.log(event);
-    if (document.body.scrollTop > 100|| document.documentElement.scrollTop > 100){
-      this.showHeader=true;
-       //this.isShow=true;
+    if (document.body.scrollTop >= 100|| document.documentElement.scrollTop >= 100){
+      this.showHeader=true;   
     }
     else{
-      this.showHeader=false;
-      //this.isShow=false
+       this.showHeader=false; 
     }
   }
     
@@ -129,7 +128,7 @@ export class UserComponent implements OnInit {
   //         this.fixed = false;
   //     }
   // }
-}
+
 
   // @HostListener('window:scroll', ['$event'])
   // onWindowScroll(e) {
@@ -154,4 +153,4 @@ export class UserComponent implements OnInit {
 //       this.showHeader = false;
 //  }
 
- 
+}   
