@@ -1,5 +1,5 @@
  <div class="dashboard-container "> 
-        <div id="abc" class="filter-sticky col-12"  [ngClass]="{'document:wheel':showHeader }" *ngIf="!showHeader ">
+        <div  class="filter-sticky col-12"  [ngClass]="{'document:wheel':showHeader }" *ngIf="!showHeader ">
             <table class=" table  sticky-layout ">
                 <thead> 
                 <tr class="table-row">
@@ -10,7 +10,7 @@
                      <span class="select"   >
                         <select name="form-select" id=""  [(ngModel)]="user.age" class="select-inner col-10"  >
                             <option class="drop-down" value="18-30" > 18 - 30</option>
-                            <option *ngFor="let age of age" [value]="age">
+                            <option class="drop-down" *ngFor="let age of age" [value]="age">
                                 {{age}}
                             </option> 
                         </select>
@@ -27,8 +27,8 @@
                     <td class="col-2" for="location"> location <br>
                         <span class="select">
                             <select name="form-select" id="" [(ngModel)]="user.location" class="select-inner col-10">
-                                <option class="drop-down" value="Karnataka">Karnataka</option>
-                                <option *ngFor="let location of location" [value]="location">
+                                <option class="drop-down" value="Delhi">Delhi</option>
+                                <option class="drop-down" *ngFor="let location of location" [value]="location">
                                     {{location}}
                                 </option>
                             </select>
@@ -38,44 +38,43 @@
                         <span class="select">
                             <select name="form-select" id=""  [(ngModel)]="user.occupation" class="select-inner col-10">
                                 <option class="drop-down" value="Farmer">Farmer</option>
-                                <option *ngFor="let occupation of occupation" [value]="occupation">
-                                    {{occupation}}
+                                <option class="drop-down" *ngFor="let occupation of occupation" [value]="occupation">
+                                    {{occupation.users}}
                                 </option>
                             </select>
                          </span>  
                     </td>
                     <td class="sticky-clear col-2">
-                        <label class="sticky-clear mx-4" (click)="cleareFilter()">Clear Filters</label> 
-                         <button onclick="passData()" class="del"><img src="assets\images\download.svg" alt=""></button>  
+                        <label class="sticky-clear mx-4" (click)="cleareFilter()">Clear Filters</label>
+                        <button  (click)="passData($event)" class="del"><img src="assets\images\download.svg"> 
+                            <div class="dot" *ngIf="selectedUsers && selectedUsers.length > 0"></div>
+                        </button>
                     </td>
                 </tr>
                </thead>
             </table>   
-        </div>      
+        </div>   
 
-    <div class="dashboard-inner-container" >
+    <div class="dashboard-inner-container  " >
         <div class="text-small col-2 ml-32">
             <p>Crafted with <span class="love-text"><img src="assets\images\love.svg" alt=""> love</span> by Lollypop design tribe.</p>
         </div>
         <div class="text-large col-10 ml-32">
              <span> Real <img src="assets\images\heading image.svg" alt=""> people  <br> for your persona</span>
         </div>
-        <div class="delete">
+        <div class="delete"  *ngIf="showHeader">
             <button  (click)="passData($event)" class="del"><img src="assets\images\download.svg"> 
                 <div class="dot" *ngIf="selectedUsers && selectedUsers.length > 0"></div>
             </button>
         </div> 
-        <div class="position-relative col-10 table-main-div  " >
+        <div class="position-relative col-10 table-main-div"   *ngIf="showHeader">
             <div class="filter-layout ml-32   col-10" >
                 <table class="table table-layout">
                     <thead> 
                     <tr class="table-row">
-                        <td class=" col-2 sticky-image" *ngIf="!showHeader">
-                            <img class="sticky-image" src="assets\images\heading image.svg" alt="">
-                        </td>
                         <td class="col-3" for="age" > Age  <br> 
                          <span class="select"   >
-                            <select  name="form-select" id=""  [(ngModel)]="user.age" class="select-inner col-10"  >
+                            <select name="form-select" id=""  [(ngModel)]="user.age" class="select-inner col-10"> 
                                 <option class="drop-down" value="18-30" > 18 - 30</option>
                                 <option class="drop-down" *ngFor="let age of age" [value]="age">
                                     {{age}}
@@ -94,8 +93,8 @@
                         <td class="col-3" for="location"> location <br>
                             <span class="select">
                                 <select name="form-select" id="" [(ngModel)]="user.location" class="select-inner col-10">
-                                    <option class="drop-down" value="Karnataka">Karnataka</option>
-                                    <option  class="drop-down" *ngFor="let location of location" [value]="location">
+                                    <option class="drop-down" value="Delhi">Delhi</option>
+                                    <option class="drop-down" *ngFor="let location of location" [value]="location">
                                         {{location}}
                                     </option>
                                 </select>
@@ -110,10 +109,6 @@
                                     </option>
                                 </select>
                              </span>  
-                        </td>
-                    <!-- header content on sticky -->
-                        <td class="sticky-clear col-2" *ngIf="!showHeader">
-                            <label class="sticky-clear mx-4" (click)="cleareFilter()">Clear Filters</label> 
                         </td>
                     </tr>
                    </thead>
@@ -149,5 +144,13 @@
         </div> 
      </div> 
  </div>
+<<<<<<< HEAD
  <app-download [userselected] = "selectedUsers" (uncheck) = "uncheckuser($event)"></app-download>
+=======
+<app-download [userselected] = "selectedUsers" (uncheck) = "uncheckuser($event)"></app-download>
+
+ 
+
+ 
+>>>>>>> ad28525b890dbaf29f018b1a4590ce1713e38414
  
