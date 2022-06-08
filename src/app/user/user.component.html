@@ -27,7 +27,7 @@
                     <td class="col-2" for="location"> location <br>
                         <span class="select">
                             <select name="form-select" id="" [(ngModel)]="user.location" class="select-inner col-10">
-                                <option class="drop-down" value="Delhi">Delhi</option>
+                                <option class="drop-down" value="Karnataka">Karnataka</option>
                                 <option class="drop-down" *ngFor="let location of location" [value]="location">
                                     {{location}}
                                 </option>
@@ -39,7 +39,7 @@
                             <select name="form-select" id=""  [(ngModel)]="user.occupation" class="select-inner col-10">
                                 <option class="drop-down" value="Farmer">Farmer</option>
                                 <option class="drop-down" *ngFor="let occupation of occupation" [value]="occupation">
-                                    {{occupation.users}}
+                                    {{occupation}}
                                 </option>
                             </select>
                          </span>  
@@ -93,7 +93,7 @@
                         <td class="col-3" for="location"> location <br>
                             <span class="select">
                                 <select name="form-select" id="" [(ngModel)]="user.location" class="select-inner col-10">
-                                    <option class="drop-down" value="Delhi">Delhi</option>
+                                    <option class="drop-down" value="Karnataka">Karnataka</option>
                                     <option class="drop-down" *ngFor="let location of location" [value]="location">
                                         {{location}}
                                     </option>
@@ -105,7 +105,7 @@
                                 <select name="form-select" id=""  [(ngModel)]="user.occupation" class="select-inner col-10">
                                     <option class="drop-down" value="Farmer">Farmer</option>
                                     <option class="drop-down" *ngFor="let occupation of occupation" [value]="occupation">
-                                        {{occupation}}
+                                        {{ occupation}}
                                     </option>
                                 </select>
                              </span>  

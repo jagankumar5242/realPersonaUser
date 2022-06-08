@@ -4,7 +4,6 @@ import { CardsComponent } from '../cards/cards.component';
 import { DownloadComponent } from '../table/download/download.component';
 import { TableComponent } from '../table/table.component';
 import { UserService } from './user.service';
-import { trigger, state, transition, style, animate } from '@angular/animations';  
 import { DOCUMENT } from '@angular/common';
 
 
@@ -12,23 +11,16 @@ import { DOCUMENT } from '@angular/common';
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
-//   animations:[ 
-//     trigger('fade',
-//     [ 
-//       state('void', style({ opacity : 0})),
-//       transition(':enter',[ animate(300)]),
-//       transition(':leave',[ animate(500)]),
-//     ]
-// )]
+ 
 })
 export class UserComponent implements OnInit {
   // fixed: boolean = false;
    isShow=true
-   user:any ={age:'18-30',gender:'Male',location:'Delhi',occupation:'Farmer'};
+   user:any ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    users:any = [] ;
    age:string[]=[' 18 - 30 years','30 - 45 years','45 - 60 years','60 - 80 years'];
-   location:string[]=[' Mumbai',' Hyderabad','Bangalore'];
-   occupation: any=['Receptionist','Daily Labour',' Software Engineer','CEO'];
+   location:string[]=[];
+   occupation:string[]=[];
    userDetails=[]; 
    showHeader=true;
    showDot = false ;
@@ -41,23 +33,31 @@ export class UserComponent implements OnInit {
   @ViewChild(CardsComponent) cardComp: CardsComponent;
   @ViewChild(TableComponent) tableComp: TableComponent
 
-   
+ 
  
   ngOnInit(): void {
    const data={};
     this.userService.getDetails(data).subscribe(res =>{
       this.users = res.filter(data => data.firstname)
-      //this.occupation=res.filter(data =>data.occupation)
-      console.log(res)
+      const allOccupation = res.map(ele => ele.occupation);
+      const allLocation = res.map(ele => ele.location);
+      this.location = this.onlyUnique(allLocation);
+      this.occupation = this.onlyUnique(allOccupation);
+      // console.log(allOccupation);
+      // console.log(allLocation);
     },err=>{
       alert("somthing error occurs")
-    })
-    // this.userService.getlocation(data).subscribe(res =>{
-    //   this.location=res.filter(data => data.locations)
-    // },err =>{
-    //  alert('location is not avialable')
-    // });
-    
+    })  
+  }
+  onlyUnique(inputArray) {
+    const outPutArray = [];
+    inputArray.map(ele => { 
+
+      if(outPutArray.indexOf(ele)== -1 && ele){
+        outPutArray.push(ele);
+      }
+    });
+    return outPutArray;
   }
 
   taggleCard(){ 
@@ -68,7 +68,7 @@ export class UserComponent implements OnInit {
   }
 
   cleareFilter( ){
-   this.user ={age:'18-30',gender:'Male',location:'Delhi',occupation:'Farmer'};
+   this.user ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    
   } 
  
@@ -110,47 +110,13 @@ export class UserComponent implements OnInit {
 
   @HostListener('document:wheel',['$event'])
   scrollfunction(event:Event){
-    console.log(event);
-    if (document.body.scrollTop >= 100|| document.documentElement.scrollTop >= 100){
+    if (document.body.scrollTop >= 100|| document.documentElement.scrollTop>= 100){
       this.showHeader=true;   
     }
     else{
        this.showHeader=false; 
     }
   }
-    
-  // @HostListener('window:scroll', [])
-  // onWindowScroll() {
-  //     let number = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
-  //     if (number > 100) {
-  //         this.fixed = true;
-  //     } else if (this.fixed && number < 10) {
-  //         this.fixed = false;
-  //     }
-  // }
-
-
-  // @HostListener('window:scroll', ['$event'])
-  // onWindowScroll(e) {
-  //    if (window.pageYOffset > 550) {
-  //      let element = document.getElementById('bottons');
-  //      this.showHeader=true;
-  //      element.classList.add('header');
-  //    } else {
-  //     let element = document.getElementById('bottons');
-  //     this.showHeader=false
-  //       element.classList.remove('header'); 
-  //    }
-  // }
-
-
-
-//   @HostListener('window:scroll', ['$event'])
-//    getScrollHeight(event) {
-//     if(window.pageYOffset> 0 )
-//      this.showHeader = true;
-//     else
-//       this.showHeader = false;
-//  }
+ 
 
 }   
