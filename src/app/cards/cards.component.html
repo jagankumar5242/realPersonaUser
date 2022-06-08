@@ -1,37 +1,38 @@
 <div class="card-container row">
-  <div class="col-12 col-md-4 col-sm-6" *ngFor="let element of userDetails ;index as i">
-  <!-- <div class="col-4" *ngFor="let element of userDetails"> -->
-    <!--  <div class="col-4" (mouseover)="showCheckbox=true" (mouseout)="showCheckbox=false"></div> -> -->
+  <div
+    class="col-12 col-md-4 col-sm-6"
+    *ngFor="let element of userDetails; index as i"
+  >
     <div
       class="image-card"
-     (click) = "clickHandler($event, i)"
-      [ngClass]="{'selected-state': element.isSelected}"  
+      (click)="clickHandler(i)"
+      [ngClass]="{ 'selected-state': element.isSelected }"
     >
-      <img
-        class="card-img"
-        src="assets/images/img2.svg"
-        alt="Card image"       
-      />
+      <img class="card-img" src="assets/images/img2.svg" alt="Card image" />
       <div class="card-img-overlay">
         <div class="text">
           <h4>
             {{ element.firstname + " " + element.lastname }}
           </h4>
           <p>
-            {{element.age +" years " +element.occupation +" " + element.location }}
+            {{ element.age + " years " + element.occupation + " " +element.location}}
           </p>
         </div>
-          <div class="check">
-            <input  *ngIf="element.isSelected" [checked] = "element.isSelected" type="checkbox" class="form-check-input"
+        <div class="check">
+          <input
+            *ngIf="element.isSelected"
+            [checked]="element.isSelected"
+            type="checkbox"
+            class="form-check-input"
           />
-          <img *ngIf="element.isSelected" class="tick"  src="assets/images/tick.svg" alt="">
-          </div>
+          <img
+            *ngIf="element.isSelected"
+            class="tick"
+            src="assets/images/tick.svg"
+            alt=""
+          />
+        </div>
       </div>
     </div>
   </div>
 </div>
-<!-- <app-download [userselected] = "userDetails" ></app-download> -->
-<!-- onclick="mark(imageId)" -->
-
-<!-- (mouseenter)="showCheckbox = true" -->
-<!-- (mouseleave)="showCheckbox = false" -->

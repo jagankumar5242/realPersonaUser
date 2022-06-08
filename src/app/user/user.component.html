@@ -46,8 +46,8 @@
                     </td>
                     <td class="sticky-clear col-2">
                         <label class="sticky-clear mx-4" (click)="cleareFilter()">Clear Filters</label>
-                        <button  *ngIf="!showHeader" (click)="passData($event)" class="del"><img src="assets\images\download.svg"> 
-                             <div class="dot" *ngIf="showDot"></div>
+                        <button  (click)="passData($event)" class="del"><img src="assets\images\download.svg"> 
+                            <div class="dot" *ngIf="selectedUsers && selectedUsers.length > 0"></div>
                         </button>
                     </td>
                 </tr>
@@ -64,7 +64,7 @@
         </div>
         <div class="delete"  *ngIf="showHeader">
             <button  (click)="passData($event)" class="del"><img src="assets\images\download.svg"> 
-                <div class="dot" *ngIf="showDot"></div>
+                <div class="dot" *ngIf="selectedUsers && selectedUsers.length > 0"></div>
             </button>
         </div> 
         <div class="position-relative col-10 table-main-div"   *ngIf="showHeader">
@@ -144,9 +144,13 @@
         </div> 
      </div> 
  </div>
+<<<<<<< HEAD
+ <app-download [userselected] = "selectedUsers" (uncheck) = "uncheckuser($event)"></app-download>
+=======
 <app-download [userselected] = "selectedUsers" (uncheck) = "uncheckuser($event)"></app-download>
 
  
 
  
+>>>>>>> ad28525b890dbaf29f018b1a4590ce1713e38414
  

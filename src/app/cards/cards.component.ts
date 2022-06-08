@@ -23,15 +23,8 @@ export class CardsComponent implements OnInit {
   constructor(private user:UserService ) { }
 
   ngOnInit(): void {
-    // const data={};
-    // this.user.getDetails(data).subscribe(res =>{
-    //   this.users=res;
-    //   console.log(res)
-    // },err=>{
-    //   alert("somthing error occurs")
-    // })
   }
-  clickHandler(x,i)
+  clickHandler(i)
   {
     if(!this. userDetails[i].isSelected){
       const selectedUsers = this. userDetails.filter(ele => ele.isSelected);

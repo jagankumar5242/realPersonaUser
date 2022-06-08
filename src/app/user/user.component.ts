@@ -67,27 +67,16 @@ export class UserComponent implements OnInit {
   this.isShow=false
   }
 
-  cleareFilter( ){
-   this.user ={age:'18-30',gender:'Male',location:'Delhi',occupation:'Farmer'};
+  cleareFilter(){
+   this.user ={age:'18-30',gender:'Male',location:'Karnataka',occupation:'Farmer'};
    
   } 
- 
-
   selectedUsers = []
   reciveTableData(udata){
     this.selectedUsers = udata;
-    this.showDot = true;
-    if(this.selectedUsers.length == 0){
-      this.showDot = false;
-    }
   }
   receiveCardData(data){
-    //  console.log(data);
      this.selectedUsers = data;
-     this.showDot = true ;
-     if(this.selectedUsers.length == 0){
-       this.showDot = false;
-     }
   }
 
   //related to sidebar Button
@@ -95,8 +84,8 @@ export class UserComponent implements OnInit {
     this.receiveCardData;
     this.btnclick = !this.btnclick;
     this.downloadComp.changeView(this.btnclick);
+    
   }
-
 
   uncheckuser(id){
       if(this.isShow == true){
